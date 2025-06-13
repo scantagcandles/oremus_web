@@ -1,3 +1,4 @@
+// web/tailwind.config.ts
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -6,7 +7,6 @@ const config: Config = {
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
   ],
   theme: {
     container: {
@@ -22,30 +22,10 @@ const config: Config = {
         primary: {
           DEFAULT: "#1a237e",
           foreground: "#ffffff",
-          50: '#e8eaf6',
-          100: '#c5cae9',
-          200: '#9fa8da',
-          300: '#7986cb',
-          400: '#5c6bc0',
-          500: '#3f51b5',
-          600: '#3949ab',
-          700: '#303f9f',
-          800: '#283593',
-          900: '#1a237e',
         },
         secondary: {
           DEFAULT: "#FFD700",
           foreground: "#1a237e",
-          50: '#fffef7',
-          100: '#fffce8',
-          200: '#fff9c4',
-          300: '#fff59d',
-          400: '#fff176',
-          500: '#ffeb3b',
-          600: '#fdd835',
-          700: '#fbc02d',
-          800: '#f9a825',
-          900: '#f57f17',
         },
         // Glass colors
         glass: {
@@ -54,6 +34,17 @@ const config: Config = {
           white: "rgba(255, 255, 255, 0.1)",
           black: "rgba(0, 0, 0, 0.3)",
         },
+        // Status colors
+        success: "#4CAF50",
+        warning: "#FF9800",
+        error: "#F44336",
+        info: "#2196F3",
+        // Feature colors
+        prayer: "#FFD700",
+        mass: "#9C27B0",
+        academy: "#4CAF50",
+        library: "#FF5722",
+        player: "#3F51B5",
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(45deg, #FFD700, #F4E4BC, #A78B52)',
@@ -66,12 +57,13 @@ const config: Config = {
       animation: {
         "glow": "glow 2s ease-in-out infinite alternate",
         "float": "float 3s ease-in-out infinite",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "flame": "flame 1.5s ease-in-out infinite",
       },
       keyframes: {
         glow: {
           "0%": { boxShadow: "0 0 20px rgba(255, 215, 0, 0.5)" },
-          "100%": { boxShadow: "0 0 30px rgba(255, 215, 0, 0.8)" },
+          "100%": { boxShadow: "0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
