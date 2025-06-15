@@ -1,5 +1,6 @@
+"use client"
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'; // ZMIENIONE z 'next/router'
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-toastify';
 import { CreditCard, Loader2 } from 'lucide-react';

@@ -1,28 +1,10 @@
-// components/layout/Navigation.tsx
-
-// Na początku pliku dodaj import:
-import { OremusLogo } from '@/components/common/logo'
-
-// MOBILE - Zamień sekcję z Flame na:
-<>
-    // MOBILE - Zamień sekcję z Flame na:
-    <Link href="/(main)" className="flex items-center">
-        <OremusLogo size="xs" effect="subtle-glow" priority />
-    </Link>
-    // TABLET - Zamień sekcję z Flame na:
-    <Link href="/(main)" className="flex items-center">
-        <OremusLogo size="sm" effect="glow" animated priority />
-    </Link>
-    // DESKTOP - Zamień sekcję z Flame na:
-    <Link href="/(main)" className="flex items-center">
-        <OremusLogo size="sm" effect="subtle-glow" animated priority />
-    </Link></>
 'use client'
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Home, Flame, Globe, Tv, ShoppingBag, User } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { OremusLogo } from '@/components/common/logo'
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -76,7 +58,9 @@ export default function Navigation() {
     return (
       <nav className="fixed left-0 top-0 h-full w-64 bg-black/90 backdrop-blur-lg border-r border-white/10 z-50">
         <div className="p-6">
-          <h1 className="text-2xl font-bold text-yellow-500 mb-8">OREMUS</h1>
+          <Link href="/(main)" className="flex items-center mb-8">
+            <OremusLogo size="sm" effect="glow" animated priority />
+          </Link>
           <div className="space-y-2">
             {navItems.map((item) => (
               <Link
@@ -103,7 +87,9 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-lg border-b border-white/10 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <h1 className="text-2xl font-bold text-yellow-500">OREMUS</h1>
+          <Link href="/(main)" className="flex items-center">
+            <OremusLogo size="sm" effect="subtle-glow" animated priority />
+          </Link>
           <div className="flex gap-6">
             {navItems.map((item) => (
               <Link

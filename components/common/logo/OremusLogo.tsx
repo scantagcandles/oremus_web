@@ -86,7 +86,6 @@ const OremusLogo = ({
 export default memo(OremusLogo)
 
 // components/common/logo/OremusLogoAnimated.tsx
-'use client'
 
 import { motion } from 'framer-motion'
 import OremusLogo from './OremusLogo'
@@ -173,7 +172,6 @@ export default function OremusLogoAnimated({
 }
 
 // components/common/logo/OremusLogoLoading.tsx
-'use client'
 
 import { motion } from 'framer-motion'
 import OremusLogo from './OremusLogo'

@@ -1,3 +1,4 @@
+"use client"
 import { FC } from 'react'
 import { motion } from 'framer-motion'
 import { LucideIcon } from 'lucide-react'
@@ -231,8 +232,4 @@ export const MetricsTable: FC<MetricsTableProps> = ({ data }) => {
   )
 }
 
-export * from './StatsCard'
-export * from './TrendChart'
-export * from './PieChartComponent'
-export * from './LineChartComponent'
-export * from './MetricsTable'
+// All components are exported above

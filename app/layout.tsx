@@ -1,10 +1,7 @@
-'use client'
-
-import { useEffect } from 'react'
-import { useServiceWorkerRegistration } from '@/hooks/useServiceWorkerRegistration'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navigation from '@/components/layout/Navigation'
+import ServiceWorkerProvider from '@/components/ServiceWorkerProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,12 +15,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Register service worker
-  useServiceWorkerRegistration()
-
   return (
     <html lang="pl">
       <body className={inter.className}>
+        <ServiceWorkerProvider />
         <Navigation />
         <main className="container mx-auto px-4">
           {children}
