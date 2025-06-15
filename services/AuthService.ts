@@ -1,8 +1,8 @@
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { supabase } from '@/lib/supabase/client'
 import { AuthResponse, PasswordValidation, ResetPasswordData, UserProfile } from '@/types/auth'
 
 export class AuthService {
-  private supabase = createClientComponentClient()
+  private supabase = supabase
 
   validatePassword(password: string): PasswordValidation {
     const errors: string[] = []
@@ -75,8 +75,10 @@ export class AuthService {
 
       if (error) throw error
 
-      // Create user profile
-      await this.createUserProfile(data.user!.id)
+      // Create user profile tylko jeśli user istnieje
+      if (data.user) {
+        await this.createUserProfile(data.user.id)
+      }
 
       return {
         success: true,
@@ -139,49 +141,79 @@ export class AuthService {
 
   // Making this method public
   async getUserProfile(userId: string): Promise<UserProfile> {
-    const { data, error } = await this.supabase
-      .from('user_profiles')
-      .select('*')
-      .eq('user_id', userId)
-      .single()
+    try {
+      const { data, error } = await this.supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('user_id', userId)
+        .single()
 
-    if (error) throw error
+      if (error) {
+        // Jeśli profil nie istnieje, utwórz go
+        if (error.code === 'PGRST116') {
+          await this.createUserProfile(userId)
+          return this.getUserProfile(userId)
+        }
+        throw error
+      }
 
-    const { data: userData } = await this.supabase.auth.getUser()
+      const { data: userData } = await this.supabase.auth.getUser()
 
-    return {
-      ...userData.user!,
-      ...data,
-      role: data.role || 'user',
-      isEmailVerified: data.is_email_verified || false,
-      twoFactorEnabled: data.two_factor_enabled || false
+      return {
+        ...userData.user!,
+        ...data,
+        role: data.role || 'user',
+        isEmailVerified: data.is_email_verified || false,
+        twoFactorEnabled: data.two_factor_enabled || false
+      }
+    } catch (error) {
+      console.error('Error getting user profile:', error)
+      throw error
     }
   }
 
   private async createUserProfile(userId: string): Promise<void> {
-    const { error } = await this.supabase
-      .from('user_profiles')
-      .insert({
-        user_id: userId,
-        role: 'user',
-        is_email_verified: false,
-        two_factor_enabled: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      })
+    try {
+      const { error } = await this.supabase
+        .from('user_profiles')
+        .insert({
+          user_id: userId,
+          role: 'user',
+          is_email_verified: false,
+          two_factor_enabled: false,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
 
-    if (error) throw error
+      if (error) {
+        // Ignoruj błąd jeśli profil już istnieje
+        if (error.code !== '23505') {
+          throw error
+        }
+      }
+    } catch (error) {
+      console.error('Error creating user profile:', error)
+      throw error
+    }
   }
 
   private async updateLastLogin(userId: string): Promise<void> {
-    const { error } = await this.supabase
-      .from('user_profiles')
-      .update({
-        last_login: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      })
-      .eq('user_id', userId)
+    try {
+      const { error } = await this.supabase
+        .from('user_profiles')
+        .update({
+          last_login: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        })
+        .eq('user_id', userId)
 
-    if (error) throw error
+      if (error) {
+        console.error('Error updating last login:', error)
+        // Nie rzucaj błędu - to nie jest krytyczne
+      }
+    } catch (error) {
+      console.error('Error updating last login:', error)
+      // Nie rzucaj błędu - to nie jest krytyczne
+    }
   }
 }

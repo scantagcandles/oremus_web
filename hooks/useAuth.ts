@@ -1,49 +1,24 @@
 import { useRouter } from 'next/navigation'
+import { supabase } from '@/lib/supabase/client'
 import { useState, useEffect } from 'react'
-import { AuthService } from '@/services/AuthService'
-import { AuthState, ResetPasswordData, UserProfile } from '@/types/auth'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { User } from '@supabase/supabase-js'
 
 export const useAuth = () => {
   const router = useRouter()
-  const authService = new AuthService()
-  const supabase = createClientComponentClient()
-  
-  const [state, setState] = useState<AuthState>({
-    user: null,
-    loading: true,
-    error: null
-  })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
     const getUser = async () => {
-      try {
-        const { data: { user } } = await supabase.auth.getUser()
-        if (user) {
-          const profile = await authService.getUserProfile(user.id)
-          setState(prev => ({ ...prev, user: profile }))
-        }
-      } catch (error) {
-        setState(prev => ({
-          ...prev,
-          error: {
-            message: error instanceof Error ? error.message : 'Failed to fetch user'
-          }
-        }))
-      } finally {
-        setState(prev => ({ ...prev, loading: false }))
-      }
+      const { data: { user } } = await supabase.auth.getUser()
+      setUser(user)
     }
 
     getUser()
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      if (session?.user) {
-        const profile = await authService.getUserProfile(session.user.id)
-        setState(prev => ({ ...prev, user: profile }))
-      } else {
-        setState(prev => ({ ...prev, user: null }))
-      }
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
     })
 
     return () => {
@@ -52,122 +27,113 @@ export const useAuth = () => {
   }, [])
 
   const signIn = async (email: string, password: string) => {
-    setState(prev => ({ ...prev, loading: true, error: null }))
-    
-    const response = await authService.signIn(email, password)
-    
-    if (response.success && response.user) {
-      setState(prev => ({ ...prev, user: response.user }))
+    try {
+      setLoading(true)
+      setError(null)
+
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (error) throw error
+
       router.push('/dashboard')
-    } else {
-      setState(prev => ({
-        ...prev,
-        error: response.error || { message: 'An unknown error occurred' }
-      }))
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred')
+    } finally {
+      setLoading(false)
     }
-    
-    setState(prev => ({ ...prev, loading: false }))
   }
 
   const signUp = async (email: string, password: string) => {
-    setState(prev => ({ ...prev, loading: true, error: null }))
-    
-    const response = await authService.signUp(email, password)
-    
-    if (response.success) {
-      setState(prev => ({ ...prev, user: response.user || null }))
-      router.push('/verify-email')
-    } else {
-      setState(prev => ({
-        ...prev,
-        error: response.error || { message: 'An unknown error occurred' }
-      }))
+    try {
+      setLoading(true)
+      setError(null)
+
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+      })
+
+      if (error) throw error
+
+      router.push('/auth/verify-email')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred')
+    } finally {
+      setLoading(false)
     }
-    
-    setState(prev => ({ ...prev, loading: false }))
   }
 
   const signOut = async () => {
-    setState(prev => ({ ...prev, loading: true, error: null }))
-    
-    const { error } = await supabase.auth.signOut()
-    
-    if (error) {
-      setState(prev => ({
-        ...prev,
-        error: { message: error.message }
-      }))
-    } else {
-      setState(prev => ({ ...prev, user: null }))
-      router.push('/login')
-    }
-    
-    setState(prev => ({ ...prev, loading: false }))
-  }
-
-  const resetPassword = async (data: ResetPasswordData) => {
-    setState(prev => ({ ...prev, loading: true, error: null }))
-    
-    const response = await authService.resetPassword(data)
-    
-    if (response.success) {
-      if (data.token) {
-        router.push('/login')
-      }
-    } else {
-      setState(prev => ({
-        ...prev,
-        error: response.error || { message: 'An unknown error occurred' }
-      }))
-    }
-    
-    setState(prev => ({ ...prev, loading: false }))
-    return response
-  }
-
-  const updateProfile = async (updates: Partial<UserProfile>) => {
-    setState(prev => ({ ...prev, loading: true, error: null }))
-    
     try {
-      if (!state.user) throw new Error('No user logged in')
-      
-      const { data, error } = await supabase
-        .from('user_profiles')
-        .update({
-          ...updates,
-          updated_at: new Date().toISOString()
-        })
-        .eq('user_id', state.user.id)
-        .select()
-        .single()
-        
+      setLoading(true)
+      setError(null)
+
+      const { error } = await supabase.auth.signOut()
       if (error) throw error
-      
-      setState(prev => ({
-        ...prev,
-        user: { ...prev.user!, ...data }
-      }))
-      
-    } catch (error) {
-      setState(prev => ({
-        ...prev,
-        error: {
-          message: error instanceof Error ? error.message : 'Failed to update profile'
-        }
-      }))
+
+      setUser(null)
+      router.push('/')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred')
     } finally {
-      setState(prev => ({ ...prev, loading: false }))
+      setLoading(false)
+    }
+  }
+
+  const resetPassword = async (email: string) => {
+    try {
+      setLoading(true)
+      setError(null)
+
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth/reset-password`,
+      })
+
+      if (error) throw error
+
+      return { success: true, message: 'Password reset email sent' }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred'
+      setError(message)
+      return { success: false, message }
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const updatePassword = async (password: string) => {
+    try {
+      setLoading(true)
+      setError(null)
+
+      const { error } = await supabase.auth.updateUser({
+        password
+      })
+
+      if (error) throw error
+
+      return { success: true, message: 'Password updated successfully' }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'An error occurred'
+      setError(message)
+      return { success: false, message }
+    } finally {
+      setLoading(false)
     }
   }
 
   return {
-    user: state.user,
-    loading: state.loading,
-    error: state.error,
     signIn,
     signUp,
     signOut,
     resetPassword,
-    updateProfile
+    updatePassword,
+    loading,
+    error,
+    user,
+    isAuthenticated: !!user
   }
 }
