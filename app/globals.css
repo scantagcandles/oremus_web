@@ -1,21 +1,60 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Dodaj do app/globals.css */
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-}
+/* Logo Filters - przekształcają białe tło na przezroczyste */
+@layer utilities {
+  /* Zmienia białe logo na białe (dla ciemnego tła) */
+  .logo-white {
+    filter: invert(1) brightness(0) contrast(100);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Zmienia białe logo na złote */
+  .logo-gold {
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(15deg) brightness(1.1);
+  }
+
+  /* Zmienia białe logo na niebieskie (primary) */
+  .logo-primary {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(200deg) brightness(0.6);
+  }
+
+  /* Efekt świecenia */
+  .logo-glow {
+    filter: invert(1) brightness(0) contrast(100) drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  }
+
+  /* Animacja pulsowania */
+  .logo-pulse {
+    animation: pulse-logo 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-logo {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
   }
 }
 
-body {
-  color: hsl(var(--foreground));
-  background: hsl(var(--background));
-  font-family: Arial, Helvetica, sans-serif;
+/* Przykłady użycia w różnych miejscach: */
+
+/* 1. W Navigation.tsx - zmień fragment z Flame na logo: */
+// Zamiast:
+// <Flame className="w-6 h-6 text-secondary" />
+
+// Użyj:
+// <Image src="/logo.png" alt="OREMUS" width={24} height={24} className="logo-gold" />
+
+/* 2. W Loading states: */
+// <Image src="/logo.png" alt="" width={80} height={80} className="logo-white logo-pulse" />
+
+/* 3. W Auth Layout: */
+// <Image src="/logo.png" alt="OREMUS" width={40} height={40} className="logo-glow" />
+
+/* 4. Responsywne logo */
+.logo-responsive {
+  @apply w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12;
 }
