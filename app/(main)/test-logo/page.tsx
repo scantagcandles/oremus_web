@@ -1,7 +1,7 @@
-'use client'
+﻿'use client'
 
 import Image from 'next/image'
-import GlassCard from '@/components/glass/GlassCard'
+import { GlassCard } from '@/components/glass/GlassCard'
 import { useState } from 'react'
 
 export default function TestLogoPage() {
@@ -9,9 +9,9 @@ export default function TestLogoPage() {
 
   const variants = [
     { id: 'original', name: 'Oryginalne', className: '' },
-    { id: 'inverted', name: 'Odwrócone (białe)', className: 'invert brightness-0 contrast-200' },
-    { id: 'gold', name: 'Złote', className: 'invert sepia saturate-200 hue-rotate-15 brightness-110' },
-    { id: 'glow', name: 'Ze świeceniem', className: 'invert brightness-0 contrast-200 drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]' },
+    { id: 'inverted', name: 'OdwrÃ³cone (biaÅ‚e)', className: 'invert brightness-0 contrast-200' },
+    { id: 'gold', name: 'ZÅ‚ote', className: 'invert sepia saturate-200 hue-rotate-15 brightness-110' },
+    { id: 'glow', name: 'Ze Å›wieceniem', className: 'invert brightness-0 contrast-200 drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]' },
     { id: 'primary', name: 'Niebieskie', className: 'invert sepia saturate-[5] hue-rotate-[200deg] brightness-[0.6]' },
     { id: 'shadow', name: 'Z cieniem', className: 'drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]' },
   ]
@@ -28,7 +28,7 @@ export default function TestLogoPage() {
       <div className="max-w-6xl mx-auto space-y-8">
         <div>
           <h1 className="text-3xl font-bold text-white mb-2">Test Logo OREMUS</h1>
-          <p className="text-white/60">Wybierz wariant który najlepiej pasuje do aplikacji</p>
+          <p className="text-white/60">Wybierz wariant ktÃ³ry najlepiej pasuje do aplikacji</p>
         </div>
 
         {/* Kontrolki */}
@@ -51,12 +51,12 @@ export default function TestLogoPage() {
           </div>
         </GlassCard>
 
-        {/* Podgląd na różnych tłach */}
+        {/* PodglÄ…d na rÃ³Å¼nych tÅ‚ach */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {backgrounds.map((bg) => (
             <GlassCard key={bg.id} className="overflow-hidden">
               <div className={`${bg.className} p-8`}>
-                <h3 className="text-white/80 text-sm mb-4">{bg.name} tło</h3>
+                <h3 className="text-white/80 text-sm mb-4">{bg.name} tÅ‚o</h3>
                 <div className="flex items-center justify-center">
                   <Image
                     src="/logo.png"
@@ -71,9 +71,9 @@ export default function TestLogoPage() {
           ))}
         </div>
 
-        {/* Przykłady użycia */}
+        {/* PrzykÅ‚ady uÅ¼ycia */}
         <GlassCard className="p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">Przykłady użycia w aplikacji</h2>
+          <h2 className="text-xl font-semibold text-white mb-6">PrzykÅ‚ady uÅ¼ycia w aplikacji</h2>
           
           <div className="space-y-6">
             {/* Navigation */}
@@ -123,13 +123,13 @@ export default function TestLogoPage() {
                   height={20}
                   className="invert"
                 />
-                <span className="font-medium">Zapal świecę</span>
+                <span className="font-medium">Zapal Å›wiecÄ™</span>
               </button>
             </div>
 
             {/* Rozmiary */}
             <div>
-              <h3 className="text-white/60 text-sm mb-2">Różne rozmiary</h3>
+              <h3 className="text-white/60 text-sm mb-2">RÃ³Å¼ne rozmiary</h3>
               <div className="flex items-end gap-4 p-4 bg-black/50 rounded-lg">
                 {[24, 32, 48, 64, 80].map((size) => (
                   <div key={size} className="text-center">
@@ -150,7 +150,7 @@ export default function TestLogoPage() {
 
         {/* Kod do skopiowania */}
         <GlassCard className="p-6">
-          <h2 className="text-xl font-semibold text-white mb-4">Kod do użycia</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">Kod do uÅ¼ycia</h2>
           <pre className="bg-black/50 p-4 rounded-lg overflow-x-auto">
             <code className="text-sm text-white/80">
 {`<Image

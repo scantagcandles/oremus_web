@@ -1,0 +1,9 @@
+components/
+├── dashboard/          # ✅ NOWY FOLDER
+│   ├── QuickStats.tsx     # ✅ 180 linii
+│   └── RecentActivity.tsx # ✅ 330 linii
+├── features/
+│   └── church-finder/  # ✅ NOWY FOLDER  
+│       └── ChurchMap.tsx  # 🔄 Pusty (0 linii)
+types/
+└── church.ts          # ✅ NOWY (446 linii)

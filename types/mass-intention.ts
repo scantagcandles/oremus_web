@@ -1,6 +1,24 @@
 import { Database } from './supabase';
 
-export type MassIntention = Database['public']['Tables']['mass_intentions']['Row'];
+export interface MassIntention {
+  id: string;
+  parish_id: string;
+  intention_for: string;
+  mass_date: string;
+  mass_time?: string;
+  mass_type: 'regular' | 'requiem' | 'thanksgiving';
+  status: MassIntentionStatus;
+  payment_id: string | null;
+  payment_status: string | null;
+  is_paid: boolean;
+  email: string;
+  created_at: string;
+  updated_at: string;
+  parishes?: {
+    id: string;
+    name: string;
+  };
+}
 
 export enum MassIntentionStatus {
   PENDING_PAYMENT = 'pending_payment',
@@ -9,7 +27,8 @@ export enum MassIntentionStatus {
   CANCELLED = 'cancelled',
   COMPLETED = 'completed',
   SCHEDULED = 'scheduled',
-  PAYMENT_FAILED = 'payment_failed'
+  PAYMENT_FAILED = 'payment_failed',
+  REFUNDED = 'refunded'
 }
 
 export interface MassIntentionStats {

@@ -1,5 +1,7 @@
-import { FC } from 'react'
-import { motion } from 'framer-motion'
+﻿"use client";
+
+import { FC } from "react";
+import { motion } from "framer-motion";
 import {
   Activity,
   AlertTriangle,
@@ -14,13 +16,13 @@ import {
   Zap,
   Filter,
   Download,
-  AlertCircle
-} from 'lucide-react'
-import GlassCard from '@/components/glass/GlassCard'
-import { GlassSelect } from '@/components/glass/GlassSelect'
-import { GlassButton } from '@/components/glass/GlassButton'
-import { AnalyticsCard } from '../analytics/AnalyticsCard'
-import { monitoringAlerts } from '@/lib/constants'
+  AlertCircle,
+} from "lucide-react";
+import GlassCard from "@/components/ui/Card";
+import { GlassSelect } from "@/components/ui/Select";
+import { GlassButton } from "@/components/ui/Button";
+import { AnalyticsCard } from "../analytics/AnalyticsCard";
+import { monitoringAlerts } from "@/lib/constants";
 
 export const MonitoringDashboard: FC = () => {
   return (
@@ -28,26 +30,26 @@ export const MonitoringDashboard: FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
         <h2 className="text-2xl font-bold text-white">Monitoring</h2>
-        
+
         <div className="flex flex-wrap gap-4">
           <GlassSelect
             options={[
-              { value: 'all', label: 'Wszystkie systemy' },
-              { value: 'web', label: 'Frontend' },
-              { value: 'api', label: 'API' },
-              { value: 'db', label: 'Baza danych' },
-              { value: 'queue', label: 'Kolejki' }
+              { value: "all", label: "Wszystkie systemy" },
+              { value: "web", label: "Frontend" },
+              { value: "api", label: "API" },
+              { value: "db", label: "Baza danych" },
+              { value: "queue", label: "Kolejki" },
             ]}
             defaultValue="all"
           />
-          <GlassButton variant="secondary">
+          <Button variant="glass" variant="secondary">
             <Filter className="w-4 h-4 mr-2" />
             Filtry
-          </GlassButton>
-          <GlassButton variant="secondary">
+          </Button>
+          <Button variant="glass" variant="secondary">
             <Download className="w-4 h-4 mr-2" />
             Eksportuj
-          </GlassButton>
+          </Button>
         </div>
       </div>
 
@@ -55,7 +57,7 @@ export const MonitoringDashboard: FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <AnalyticsCard
           title="Status systemu"
-          value="Działa"
+          value="DziaÅ‚a"
           className="border-l-4 border-success"
           icon={Server}
         />
@@ -72,7 +74,7 @@ export const MonitoringDashboard: FC = () => {
           icon={Zap}
         />
         <AnalyticsCard
-          title="Błędy (24h)"
+          title="BÅ‚Ä™dy (24h)"
           value="3"
           trend={{ value: "+2", positive: false }}
           icon={AlertTriangle}
@@ -82,7 +84,9 @@ export const MonitoringDashboard: FC = () => {
       {/* Performance Metrics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <GlassCard className="p-6">
-          <h3 className="text-lg font-bold text-white mb-6">Wykorzystanie zasobów</h3>
+          <h3 className="text-lg font-bold text-white mb-6">
+            Wykorzystanie zasobÃ³w
+          </h3>
           <div className="space-y-4">
             {/* CPU Usage */}
             <div>
@@ -120,22 +124,29 @@ export const MonitoringDashboard: FC = () => {
         </GlassCard>
 
         <GlassCard className="p-6">
-          <h3 className="text-lg font-bold text-white mb-6">Status usług</h3>
+          <h3 className="text-lg font-bold text-white mb-6">Status usÅ‚ug</h3>
           <div className="space-y-4">
             {[
-              { name: 'Frontend', status: 'operational', latency: '89ms' },
-              { name: 'API', status: 'operational', latency: '124ms' },
-              { name: 'Database', status: 'operational', latency: '45ms' },
-              { name: 'Queue', status: 'degraded', latency: '235ms' },
-              { name: 'Storage', status: 'operational', latency: '67ms' }
+              { name: "Frontend", status: "operational", latency: "89ms" },
+              { name: "API", status: "operational", latency: "124ms" },
+              { name: "Database", status: "operational", latency: "45ms" },
+              { name: "Queue", status: "degraded", latency: "235ms" },
+              { name: "Storage", status: "operational", latency: "67ms" },
             ].map((service) => (
-              <div key={service.name} className="flex items-center justify-between py-2">
+              <div
+                key={service.name}
+                className="flex items-center justify-between py-2"
+              >
                 <div className="flex items-center gap-3">
-                  <div className={`w-2 h-2 rounded-full ${
-                    service.status === 'operational' ? 'bg-success' :
-                    service.status === 'degraded' ? 'bg-warning' :
-                    'bg-error'
-                  }`} />
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      service.status === "operational"
+                        ? "bg-success"
+                        : service.status === "degraded"
+                        ? "bg-warning"
+                        : "bg-error"
+                    }`}
+                  />
                   <span className="text-white">{service.name}</span>
                 </div>
                 <span className="text-white/70">{service.latency}</span>
@@ -152,41 +163,48 @@ export const MonitoringDashboard: FC = () => {
           {[
             {
               id: 1,
-              type: 'warning',
-              message: 'Wysokie wykorzystanie CPU',
-              timestamp: '2 min temu',
-              icon: ThermometerSun
+              type: "warning",
+              message: "Wysokie wykorzystanie CPU",
+              timestamp: "2 min temu",
+              icon: ThermometerSun,
             },
             {
               id: 2,
-              type: 'error',
-              message: 'Błąd połączenia z bazą danych',
-              timestamp: '15 min temu',
-              icon: Database
+              type: "error",
+              message: "BÅ‚Ä…d poÅ‚Ä…czenia z bazÄ… danych",
+              timestamp: "15 min temu",
+              icon: Database,
             },
             {
               id: 3,
-              type: 'success',
-              message: 'System automatycznie naprawiony',
-              timestamp: '1h temu',
-              icon: MonitorCheck
-            }
+              type: "success",
+              message: "System automatycznie naprawiony",
+              timestamp: "1h temu",
+              icon: MonitorCheck,
+            },
           ].map((alert) => (
-            <div key={alert.id} className="flex items-start gap-4 p-4 rounded-lg bg-glass-white">
-              <div className={`p-2 rounded-lg ${
-                alert.type === 'error' ? 'bg-error/20 text-error' :
-                alert.type === 'warning' ? 'bg-warning/20 text-warning' :
-                'bg-success/20 text-success'
-              }`}>
+            <div
+              key={alert.id}
+              className="flex items-start gap-4 p-4 rounded-lg bg-glass-white"
+            >
+              <div
+                className={`p-2 rounded-lg ${
+                  alert.type === "error"
+                    ? "bg-error/20 text-error"
+                    : alert.type === "warning"
+                    ? "bg-warning/20 text-warning"
+                    : "bg-success/20 text-success"
+                }`}
+              >
                 <alert.icon className="w-5 h-5" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-medium">{alert.message}</p>
                 <p className="text-white/50 text-sm">{alert.timestamp}</p>
               </div>
-              <GlassButton variant="secondary" size="sm">
-                Szczegóły
-              </GlassButton>
+              <Button variant="glass" variant="secondary" size="sm">
+                SzczegÃ³Å‚y
+              </Button>
             </div>
           ))}
         </div>
@@ -194,37 +212,31 @@ export const MonitoringDashboard: FC = () => {
 
       {/* Security Overview */}
       <GlassCard className="p-6">
-        <h3 className="text-lg font-bold text-white mb-6">Bezpieczeństwo</h3>
+        <h3 className="text-lg font-bold text-white mb-6">BezpieczeÅ„stwo</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-success">
               <Shield className="w-5 h-5" />
               <span className="font-medium">Firewall aktywny</span>
             </div>
-            <p className="text-white/70 text-sm">
-              Ostatni atak: 3 dni temu
-            </p>
+            <p className="text-white/70 text-sm">Ostatni atak: 3 dni temu</p>
           </div>
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-success">
               <Lock className="w-5 h-5" />
               <span className="font-medium">SSL/TLS aktywne</span>
             </div>
-            <p className="text-white/70 text-sm">
-              Certyfikat ważny: 89 dni
-            </p>
+            <p className="text-white/70 text-sm">Certyfikat waÅ¼ny: 89 dni</p>
           </div>
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-success">
               <CheckCircle2 className="w-5 h-5" />
-              <span className="font-medium">0 podatności</span>
+              <span className="font-medium">0 podatnoÅ›ci</span>
             </div>
-            <p className="text-white/70 text-sm">
-              Ostatni skan: 2h temu
-            </p>
+            <p className="text-white/70 text-sm">Ostatni skan: 2h temu</p>
           </div>
         </div>
       </GlassCard>
     </div>
-  )
-}
+  );
+};

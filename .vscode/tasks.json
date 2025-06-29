@@ -1,0 +1,23 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Fix All Imports",
+      "type": "shell",
+      "command": "npx",
+      "args": ["eslint", ".", "--fix"],
+      "problemMatcher": ["$eslint-stylish"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Update Import Paths",
+      "type": "shell",
+      "command": "npx",
+      "args": ["tsx", "scripts/update-imports.ts"],
+      "problemMatcher": []
+    }
+  ]
+}

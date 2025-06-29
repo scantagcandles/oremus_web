@@ -1,19 +1,18 @@
-import { FC } from 'react'
-import { motion } from 'framer-motion'
-import { 
-  TrendingUp, 
-  TrendingDown 
-} from 'lucide-react'
+"use client";
+
+import { FC } from "react";
+import { motion } from "framer-motion";
+import { TrendingUp, TrendingDown } from "lucide-react";
 
 interface AnalyticsCardProps {
-  title: string
-  value: string | number
+  title: string;
+  value: string | number;
   trend?: {
-    value: string
-    positive: boolean
-  }
-  icon?: React.ComponentType
-  className?: string
+    value: string;
+    positive: boolean;
+  };
+  icon?: React.ComponentType;
+  className?: string;
 }
 
 export const AnalyticsCard: FC<AnalyticsCardProps> = ({
@@ -21,7 +20,7 @@ export const AnalyticsCard: FC<AnalyticsCardProps> = ({
   value,
   trend,
   icon: Icon,
-  className
+  className,
 }) => {
   return (
     <motion.div
@@ -36,9 +35,11 @@ export const AnalyticsCard: FC<AnalyticsCardProps> = ({
       <div className="flex items-baseline gap-2">
         <span className="text-2xl font-bold text-white">{value}</span>
         {trend && (
-          <div className={`flex items-center gap-1 text-sm ${
-            trend.positive ? 'text-success' : 'text-error'
-          }`}>
+          <div
+            className={`flex items-center gap-1 text-sm ${
+              trend.positive ? "text-success" : "text-error"
+            }`}
+          >
             {trend.positive ? (
               <TrendingUp className="w-4 h-4" />
             ) : (
@@ -49,5 +50,5 @@ export const AnalyticsCard: FC<AnalyticsCardProps> = ({
         )}
       </div>
     </motion.div>
-  )
-}
+  );
+};

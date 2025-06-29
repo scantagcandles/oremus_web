@@ -1,5 +1,7 @@
-import { LucideIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
+"use client";
+
+import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface StatsCardProps {
   title: string;
@@ -14,13 +16,15 @@ export function StatsCard({
   value,
   trend,
   icon,
-  className
+  className,
 }: StatsCardProps) {
   return (
-    <div className={cn(
-      "bg-glass-white backdrop-blur-lg rounded-xl p-4 text-white",
-      className
-    )}>
+    <div
+      className={cn(
+        "bg-glass-white backdrop-blur-lg rounded-xl p-4 text-white",
+        className
+      )}
+    >
       <div className="flex items-start justify-between">
         <div className="space-y-2">
           <h3 className="text-sm font-medium text-white/70">{title}</h3>
@@ -33,11 +37,14 @@ export function StatsCard({
         )}
       </div>
       {trend !== undefined && (
-        <div className={cn(
-          "mt-2 text-sm",
-          trend >= 0 ? "text-green-400" : "text-red-400"
-        )}>
-          {trend >= 0 ? "+" : ""}{trend.toFixed(1)}%
+        <div
+          className={cn(
+            "mt-2 text-sm",
+            trend >= 0 ? "text-green-400" : "text-red-400"
+          )}
+        >
+          {trend >= 0 ? "+" : ""}
+          {trend.toFixed(1)}%
         </div>
       )}
     </div>

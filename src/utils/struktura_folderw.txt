@@ -1,0 +1,7 @@
+/woocommerce-product-recording/
+├── assets/
+│   ├── css/
+│   │   └── recording.css
+│   └── js/
+│       └── recording.js
+└── woocommerce-product-recording.php

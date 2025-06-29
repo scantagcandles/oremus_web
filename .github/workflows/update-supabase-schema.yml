@@ -1,0 +1,113 @@
+name: Update Supabase Schema
+
+on:
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "types/**/*.ts"
+      - "services/**/*.ts"
+      - "hooks/**/*.ts"
+      - "src/**/*.ts"
+      - "app/**/*.ts"
+      - "components/**/*.tsx"
+  # Allow manual triggering from Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-schema:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install additional tools
+        run: npm install -g ts-node sql-lint glob typescript supabase chalk
+
+      - name: Run TypeScript validation
+        run: tsc --noEmit tools/schema-extractor.ts tools/detect-table-usage.ts tools/check-multi-tenant-schema.ts tools/validate-migrations.ts
+
+      - name: Run schema extractor
+        run: npx ts-node tools/schema-extractor.ts
+
+      - name: Generate table usage report
+        run: npx ts-node tools/detect-table-usage.ts
+
+      - name: Check multi-tenant schema
+        run: npx ts-node tools/check-multi-tenant-schema.ts
+        continue-on-error: true
+
+      - name: Validate SQL migrations
+        run: npx ts-node tools/validate-migrations.ts
+        continue-on-error: true
+
+      - name: Validate SQL schema
+        run: sql-lint --config .sql-lint.json supabase/migrations/00000000000000_oremus_schema.sql
+        continue-on-error: true
+
+      - name: Validate multi-tenant SQL schema
+        run: sql-lint --config .sql-lint.json supabase/migrations/20250621000001_multi_tenant_schema.sql
+        continue-on-error: true
+
+      - name: Validate migration SQL schema
+        run: sql-lint --config .sql-lint.json supabase/migrations/20250621000002_migrate_to_multi_tenant.sql
+        continue-on-error: true
+
+      - name: Generate ERD (if Supabase CLI available)
+        run: |
+          if command -v supabase &> /dev/null; then
+            mkdir -p docs/diagrams
+            supabase db diagram -o docs/diagrams/database-erd.png
+          else
+            echo "Supabase CLI not available, skipping ERD generation"
+            
+            # Try to install Supabase CLI
+            npm install -g supabase
+            if command -v supabase &> /dev/null; then
+              mkdir -p docs/diagrams
+              supabase db diagram -o docs/diagrams/database-erd.png
+            else
+              echo "Could not install Supabase CLI"
+            fi
+          fi
+        continue-on-error: true
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --name-only | grep -q "supabase/migrations\|docs/"; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes if needed
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add supabase/migrations/00000000000000_oremus_schema.sql supabase/migrations/20250621000001_multi_tenant_schema.sql supabase/migrations/20250621000002_migrate_to_multi_tenant.sql docs/database-schema.md docs/supabase-usage-report.md docs/multi-tenant-analysis.md docs/migration-validation-report.md docs/schema-management.md docs/diagrams
+          git commit -m "chore: Update Supabase schema based on code changes"
+          git push
+
+      - name: Check for validation errors
+        run: |
+          # Look for error patterns in the validation reports
+          if grep -q "ERROR" docs/migration-validation-report.md; then
+            echo "::error::Migration validation found errors. Please review docs/migration-validation-report.md"
+            exit 1
+          fi
+
+          if grep -q "⚠️ Missing" docs/multi-tenant-analysis.md; then
+            echo "::warning::Multi-tenant schema check found issues. Please review docs/multi-tenant-analysis.md"
+          fi

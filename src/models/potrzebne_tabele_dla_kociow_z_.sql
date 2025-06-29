@@ -1,0 +1,1 @@
+-- Schema dla kościołów, kalendarza mszy, etc.

@@ -1,0 +1,18 @@
+oremus-web/
+├── app/                    # Next.js App Router
+├── components/             # React components
+│   ├── ui/                # Basic UI (Button, Input, etc.)
+│   ├── glass/             # Glass UI system
+│   ├── features/          # Feature-specific
+│   ├── admin/             # Admin components
+│   ├── dashboard/         # Dashboard components
+│   ├── layout/            # Layout components
+│   └── common/            # Shared components
+├── hooks/                 # Custom React hooks
+├── lib/                   # Internal libraries & config
+├── services/              # Business logic & API
+├── types/                 # TypeScript definitions
+├── public/                # Static assets
+├── external/              # Non-Next.js integrations
+│   └── woocommerce/       # WordPress plugin files
+└── supabase/              # Supabase functions

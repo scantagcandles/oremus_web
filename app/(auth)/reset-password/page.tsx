@@ -1,10 +1,10 @@
-"use client"
+﻿"use client"
 import { useState, useEffect } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { useSearchParams } from 'next/navigation'
-import GlassCard from '@/components/glass/GlassCard'
-import GlassInput from '@/components/glass/GlassInput'
-import GlassButton from '@/components/glass/GlassButton'
+import { GlassCard } from '@/components/glass/GlassCard'
+import { GlassInput } from '@/components/glass/GlassInput'
+import GlassButton from '@/components/ui/Button'
 
 export default function ResetPassword() {
   const [password, setPassword] = useState('')
@@ -80,13 +80,13 @@ export default function ResetPassword() {
               </div>
             )}
 
-            <GlassButton
+            <Button variant="glass"
               type="submit"
               disabled={loading || !token}
               className="w-full"
             >
               {loading ? 'Resetting...' : 'Reset Password'}
-            </GlassButton>
+            </Button>
           </form>
         )}
       </GlassCard>

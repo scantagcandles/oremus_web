@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import { useState, useEffect } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { format } from 'date-fns';
@@ -8,13 +8,13 @@ import { Calendar, ChevronLeft, ChevronRight, Filter, Search } from 'lucide-reac
 import { useForm } from 'react-hook-form';
 
 import { GlassCard } from '@/components/glass/GlassCard';
-import { GlassButton } from '@/components/glass/GlassButton';
+import { GlassButton } from '@/components/ui/Button';
 import { GlassInput } from '@/components/glass/GlassInput';
 import { GlassSelect } from '@/components/glass/GlassSelect';
 import { DataGrid } from '@/components/admin/DataGrid';
 import { StatsCard } from '@/components/admin/analytics/StatsCard';
 import { TrendChart } from '@/components/admin/analytics/TrendChart';
-import { MassIntentionService } from '@/services/massIntentionService';
+import { MassIntentionService } from '@/services/mass/MassIntentionService';
 import { 
   MassIntention,
   MassIntentionStatus,
@@ -43,7 +43,7 @@ export default function MassIntentionDashboard() {
       setStats(stats);
     } catch (error) {
       console.error('Error loading intentions:', error);
-      toast.error('Nie udało się załadować intencji');
+      toast.error('Nie udaÅ‚o siÄ™ zaÅ‚adowaÄ‡ intencji');
     } finally {
       setLoading(false);
     }
@@ -60,11 +60,11 @@ export default function MassIntentionDashboard() {
   const handleStatusChange = async (id: string, status: MassIntentionStatus) => {
     try {
       await service.updateIntention(id, { status });
-      toast.success('Status został zaktualizowany');
+      toast.success('Status zostaÅ‚ zaktualizowany');
       loadData();
     } catch (error) {
       console.error('Error updating status:', error);
-      toast.error('Nie udało się zaktualizować statusu');
+      toast.error('Nie udaÅ‚o siÄ™ zaktualizowaÄ‡ statusu');
     }
   };
 
@@ -79,18 +79,18 @@ export default function MassIntentionDashboard() {
             icon="inbox"
           />
           <StatsCard
-            title="Oczekujące na płatność"
+            title="OczekujÄ…ce na pÅ‚atnoÅ›Ä‡"
             value={stats.pending}
             trend={(stats.pending / stats.total) * 100}
             icon="clock"
           />
           <StatsCard
-            title="Przychód całkowity"
-            value={`${stats.totalRevenue / 100} zł`}
+            title="PrzychÃ³d caÅ‚kowity"
+            value={`${stats.totalRevenue / 100} zÅ‚`}
             icon="banknote"
           />
           <StatsCard
-            title="Śr. czas realizacji"
+            title="Åšr. czas realizacji"
             value={`${Math.round(stats.avgProcessingTime)} dni`}
             icon="timer"
           />
@@ -101,13 +101,13 @@ export default function MassIntentionDashboard() {
       <GlassCard className="p-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-white">Intencje mszalne</h2>
-          <GlassButton
+          <Button variant="glass"
             onClick={() => setShowFilters(!showFilters)}
             variant="secondary"
           >
             <Filter className="w-4 h-4 mr-2" />
             Filtry
-          </GlassButton>
+          </Button>
         </div>
 
         {showFilters && (
@@ -141,9 +141,9 @@ export default function MassIntentionDashboard() {
             />
 
             <div className="md:col-span-3 flex justify-end">
-              <GlassButton type="submit">
+              <Button variant="glass" type="submit">
                 Zastosuj filtry
-              </GlassButton>
+              </Button>
             </div>
           </form>
         )}
@@ -185,9 +185,9 @@ export default function MassIntentionDashboard() {
               )
             },
             {
-              header: 'Płatność',
+              header: 'PÅ‚atnoÅ›Ä‡',
               accessor: 'payment_amount',
-              cell: ({ value }) => value ? `${value / 100} zł` : '-'
+              cell: ({ value }) => value ? `${value / 100} zÅ‚` : '-'
             }
           ]}
           pagination
@@ -198,11 +198,11 @@ export default function MassIntentionDashboard() {
       {/* Analytics Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <GlassCard className="p-4">
-          <h3 className="text-lg font-bold text-white mb-4">Intencje według statusu</h3>
+          <h3 className="text-lg font-bold text-white mb-4">Intencje wedÅ‚ug statusu</h3>
           <TrendChart
             data={[
-              { name: 'Oczekujące', value: stats?.pending || 0 },
-              { name: 'Opłacone', value: stats?.paid || 0 },
+              { name: 'OczekujÄ…ce', value: stats?.pending || 0 },
+              { name: 'OpÅ‚acone', value: stats?.paid || 0 },
               { name: 'Zrealizowane', value: stats?.completed || 0 },
               { name: 'Anulowane', value: stats?.cancelled || 0 }
             ]}
@@ -210,7 +210,7 @@ export default function MassIntentionDashboard() {
         </GlassCard>
 
         <GlassCard className="p-4">
-          <h3 className="text-lg font-bold text-white mb-4">Przychód (ostatnie 30 dni)</h3>
+          <h3 className="text-lg font-bold text-white mb-4">PrzychÃ³d (ostatnie 30 dni)</h3>
           <TrendChart
             data={[]} // TODO: Implement revenue over time data
             type="line"
@@ -220,3 +220,5 @@ export default function MassIntentionDashboard() {
     </div>
   );
 }
+
+

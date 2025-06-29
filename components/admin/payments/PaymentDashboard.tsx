@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { FC, useState } from 'react'
 import { motion } from 'framer-motion'
@@ -14,10 +14,10 @@ import {
   Filter,
   Download
 } from 'lucide-react'
-import GlassCard from '@/components/glass/GlassCard'
-import { GlassInput } from '@/components/glass/GlassInput'
-import { GlassSelect } from '@/components/glass/GlassSelect'
-import { GlassButton } from '@/components/glass/GlassButton'
+import GlassCard from '@/components/ui/Card'
+import { GlassInput } from '@/components/ui/Input'
+import { GlassSelect } from '@/components/ui/Select'
+import { GlassButton } from '@/components/ui/Button'
 import { DataGrid } from '@/components/admin/DataGrid'
 import { paymentStatus } from '@/lib/constants'
 import { formatCurrency, formatDateTime } from '@/lib/utils'
@@ -73,7 +73,7 @@ export const PaymentDashboard: FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-        <h2 className="text-2xl font-bold text-white">Płatności</h2>
+        <h2 className="text-2xl font-bold text-white">PÅ‚atnoÅ›ci</h2>
 
         <div className="flex flex-wrap gap-4">
           <GlassInput
@@ -99,22 +99,22 @@ export const PaymentDashboard: FC = () => {
             value={dateRange}
             onChange={(e) => setDateRange(e.target.value)}
             options={[
-              { value: 'today', label: 'Dziś' },
-              { value: 'week', label: 'Tydzień' },
-              { value: 'month', label: 'Miesiąc' },
+              { value: 'today', label: 'DziÅ›' },
+              { value: 'week', label: 'TydzieÅ„' },
+              { value: 'month', label: 'MiesiÄ…c' },
               { value: 'year', label: 'Rok' }
             ]}
           />
 
-          <GlassButton variant="secondary">
+          <Button variant="glass" variant="secondary">
             <Filter className="w-4 h-4 mr-2" />
             Filtry
-          </GlassButton>
+          </Button>
 
-          <GlassButton variant="secondary">
+          <Button variant="glass" variant="secondary">
             <Download className="w-4 h-4 mr-2" />
             Eksportuj
-          </GlassButton>
+          </Button>
         </div>
       </div>
 
@@ -153,13 +153,13 @@ export const PaymentDashboard: FC = () => {
         <GlassModal
           isOpen={true}
           onClose={() => setSelectedPayment(null)}
-          title="Szczegóły płatności"
+          title="SzczegÃ³Å‚y pÅ‚atnoÅ›ci"
         >
           <div className="space-y-4">
             {/* Payment info */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-white/50 text-sm">ID płatności</p>
+                <p className="text-white/50 text-sm">ID pÅ‚atnoÅ›ci</p>
                 <p className="text-white">{selectedPayment.id}</p>
               </div>
               <div>
@@ -190,30 +190,30 @@ export const PaymentDashboard: FC = () => {
 
             {/* Actions */}
             <div className="flex gap-3">
-              <GlassButton
+              <Button variant="glass"
                 variant="secondary"
                 className="flex-1"
                 disabled={selectedPayment.status === 'completed'}
               >
                 <CheckCircle className="w-4 h-4 mr-2" />
-                Potwierdź płatność
-              </GlassButton>
-              <GlassButton
+                PotwierdÅº pÅ‚atnoÅ›Ä‡
+              </Button>
+              <Button variant="glass"
                 variant="secondary"
                 className="flex-1"
                 disabled={selectedPayment.status === 'cancelled'}
               >
                 <XCircle className="w-4 h-4 mr-2" />
                 Anuluj
-              </GlassButton>
-              <GlassButton
+              </Button>
+              <Button variant="glass"
                 variant="secondary"
                 className="flex-1"
                 disabled={!['failed', 'cancelled'].includes(selectedPayment.status)}
               >
                 <RotateCcw className="w-4 h-4 mr-2" />
-                Spróbuj ponownie
-              </GlassButton>
+                SprÃ³buj ponownie
+              </Button>
             </div>
           </div>
         </GlassModal>
@@ -221,3 +221,4 @@ export const PaymentDashboard: FC = () => {
     </div>
   )
 }
+

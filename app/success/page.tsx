@@ -1,12 +1,12 @@
-'use client';
+﻿'use client';
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Check, Loader, AlertCircle, ArrowLeft, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-import GlassCard from '@/components/glass/GlassCard';
-import { GlassButton } from '@/components/glass/GlassButton';
+import { GlassCard } from '@/components/glass/GlassCard';
+import { GlassButton } from '@/components/ui/Button';
 import { PaymentService } from '@/services/payment/PaymentService';
 
 export default function PaymentSuccess() {
@@ -96,51 +96,51 @@ export default function PaymentSuccess() {
               )}
 
               <h1 className="text-3xl font-bold text-white mb-4">
-                {status === 'loading' && 'Weryfikacja płatności...'}
-                {status === 'success' && 'Dziękujemy za zamówienie!'}
-                {status === 'error' && 'Wystąpił problem'}
+                {status === 'loading' && 'Weryfikacja pÅ‚atnoÅ›ci...'}
+                {status === 'success' && 'DziÄ™kujemy za zamÃ³wienie!'}
+                {status === 'error' && 'WystÄ…piÅ‚ problem'}
               </h1>
 
               {status === 'loading' && (
                 <p className="text-white/70 mb-8">
-                  Prosimy o chwilę cierpliwości, weryfikujemy Twoją płatność...
+                  Prosimy o chwilÄ™ cierpliwoÅ›ci, weryfikujemy TwojÄ… pÅ‚atnoÅ›Ä‡...
                 </p>
               )}
 
               {status === 'success' && details && (
                 <>
                   <p className="text-white/70 mb-6">
-                    Twoja intencja mszalna została przyjęta, a płatność zrealizowana.
-                    Na podany adres email wysłaliśmy potwierdzenie wraz ze szczegółami.
+                    Twoja intencja mszalna zostaÅ‚a przyjÄ™ta, a pÅ‚atnoÅ›Ä‡ zrealizowana.
+                    Na podany adres email wysÅ‚aliÅ›my potwierdzenie wraz ze szczegÃ³Å‚ami.
                   </p>
 
                   <div className="bg-glass-white rounded-xl p-4 mb-8">
                     <div className="flex items-center justify-between text-sm mb-2">
-                      <span className="text-white/70">Numer zamówienia:</span>
+                      <span className="text-white/70">Numer zamÃ³wienia:</span>
                       <span className="text-white font-medium">#{details.order_id}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-white/70">Kwota:</span>
-                      <span className="text-white font-medium">{details.amount} zł</span>
+                      <span className="text-white font-medium">{details.amount} zÅ‚</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-3">
-                    <GlassButton
+                    <Button variant="glass"
                       onClick={() => router.push('/')}
                       className="gap-2"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      Wróć do strony głównej
-                    </GlassButton>
-                    <GlassButton
+                      WrÃ³Ä‡ do strony gÅ‚Ã³wnej
+                    </Button>
+                    <Button variant="glass"
                       variant="secondary"
                       onClick={() => window.open('mailto:contact@oremus.app')}
                       className="gap-2"
                     >
                       <Mail className="w-4 h-4" />
-                      Kontakt z obsługą
-                    </GlassButton>
+                      Kontakt z obsÅ‚ugÄ…
+                    </Button>
                   </div>
                 </>
               )}
@@ -148,25 +148,25 @@ export default function PaymentSuccess() {
               {status === 'error' && (
                 <>
                   <p className="text-white/70 mb-8">
-                    Przepraszamy, wystąpił problem z weryfikacją płatności.
-                    Jeśli uważasz, że to błąd, skontaktuj się z naszą obsługą.
+                    Przepraszamy, wystÄ…piÅ‚ problem z weryfikacjÄ… pÅ‚atnoÅ›ci.
+                    JeÅ›li uwaÅ¼asz, Å¼e to bÅ‚Ä…d, skontaktuj siÄ™ z naszÄ… obsÅ‚ugÄ….
                   </p>
 
                   <div className="flex flex-col gap-3">
-                    <GlassButton
+                    <Button variant="glass"
                       onClick={() => router.back()}
                       className="gap-2"
                     >
-                      Spróbuj ponownie
-                    </GlassButton>
-                    <GlassButton
+                      SprÃ³buj ponownie
+                    </Button>
+                    <Button variant="glass"
                       variant="secondary"
                       onClick={() => window.open('mailto:contact@oremus.app')}
                       className="gap-2"
                     >
                       <Mail className="w-4 h-4" />
-                      Kontakt z obsługą
-                    </GlassButton>
+                      Kontakt z obsÅ‚ugÄ…
+                    </Button>
                   </div>
                 </>
               )}
@@ -177,3 +177,4 @@ export default function PaymentSuccess() {
     </div>
   );
 }
+

@@ -1,0 +1,4150 @@
+{
+  ".eslintrc.json": {
+    "file": ".eslintrc.json",
+    "lines": 6,
+    "size": 73,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".gitignore": {
+    "file": ".gitignore",
+    "lines": 9,
+    "size": 75,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".sql-lint.json": {
+    "file": ".sql-lint.json",
+    "lines": 15,
+    "size": 334,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "claude-receiver-old.py": {
+    "file": "claude-receiver-old.py",
+    "lines": 696,
+    "size": 26552,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "cleanup_oremus.py": {
+    "file": "cleanup_oremus.py",
+    "lines": 518,
+    "size": 20225,
+    "functions": [
+      {
+        "name": "__init__",
+        "line": 17
+      },
+      {
+        "name": "get_folder_size",
+        "line": 29
+      },
+      {
+        "name": "format_size",
+        "line": 42
+      },
+      {
+        "name": "confirm_action",
+        "line": 53
+      },
+      {
+        "name": "create_backup",
+        "line": 67
+      },
+      {
+        "name": "remove_file",
+        "line": 114
+      },
+      {
+        "name": "remove_directory",
+        "line": 128
+      },
+      {
+        "name": "clean_auth_duplicates",
+        "line": 142
+      },
+      {
+        "name": "clean_order_mass_duplicates",
+        "line": 177
+      },
+      {
+        "name": "clean_temp_files",
+        "line": 198
+      },
+      {
+        "name": "clean_backup_folders",
+        "line": 271
+      },
+      {
+        "name": "clean_external_folder",
+        "line": 299
+      },
+      {
+        "name": "clean_src_duplicates",
+        "line": 330
+      },
+      {
+        "name": "clean_empty_files",
+        "line": 361
+      },
+      {
+        "name": "analyze_services_duplicates",
+        "line": 389
+      },
+      {
+        "name": "generate_report",
+        "line": 438
+      },
+      {
+        "name": "run",
+        "line": 471
+      }
+    ],
+    "classes": [
+      {
+        "name": "OremusProjectCleaner",
+        "line": 16
+      }
+    ],
+    "imports": [
+      "pathlib",
+      "datetime"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "cleanup_report_20250626_071927.json": {
+    "file": "cleanup_report_20250626_071927.json",
+    "lines": 63,
+    "size": 1728,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "create-pages.js": {
+    "file": "create-pages.js",
+    "lines": 618,
+    "size": 20122,
+    "functions": [
+      {
+        "name": "HomePage",
+        "type": "component"
+      },
+      {
+        "name": "DashboardPage",
+        "type": "component"
+      },
+      {
+        "name": "LibraryPage",
+        "type": "component"
+      },
+      {
+        "name": "ChurchFinder",
+        "type": "component"
+      },
+      {
+        "name": "MessagesPage",
+        "type": "component"
+      },
+      {
+        "name": "LivePage",
+        "type": "component"
+      },
+      {
+        "name": "AdminDashboard",
+        "type": "component"
+      },
+      {
+        "name": "NotFoundPage",
+        "type": "component"
+      },
+      {
+        "name": "ForbiddenPage",
+        "type": "component"
+      }
+    ],
+    "classes": [],
+    "imports": [
+      "framer-motion",
+      "next/link",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "next/link",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "next/link",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "next/link",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "@/components/glass/GlassCard",
+      "framer-motion",
+      "next/link",
+      "framer-motion",
+      "next/link"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "jest.config.js": {
+    "file": "jest.config.js",
+    "lines": 16,
+    "size": 329,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "jest.setup.js": {
+    "file": "jest.setup.js",
+    "lines": 1,
+    "size": 19,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "jest.setup.ts": {
+    "file": "jest.setup.ts",
+    "lines": 29,
+    "size": 514,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "middleware.ts": {
+    "file": "middleware.ts",
+    "lines": 430,
+    "size": 11877,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "next-env.d.ts": {
+    "file": "next-env.d.ts",
+    "lines": 5,
+    "size": 211,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "next.config.js": {
+    "file": "next.config.js",
+    "lines": 146,
+    "size": 3373,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "package.json": {
+    "file": "package.json",
+    "lines": 110,
+    "size": 4195,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "postcss.config.js": {
+    "file": "postcss.config.js",
+    "lines": 6,
+    "size": 82,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "PROJECT_STRUCTURE.md": {
+    "file": "PROJECT_STRUCTURE.md",
+    "lines": 253,
+    "size": 5084,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "python quick_fix.py": {
+    "file": "python quick_fix.py",
+    "lines": 331,
+    "size": 11675,
+    "functions": [
+      {
+        "name": "quick_generate_map",
+        "line": 12
+      },
+      {
+        "name": "get_file_description",
+        "line": 287
+      }
+    ],
+    "classes": [],
+    "imports": [
+      "datetime",
+      "pathlib"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "README.md": {
+    "file": "README.md",
+    "lines": 165,
+    "size": 3258,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "structure.txt": {
+    "file": "structure.txt",
+    "lines": 7,
+    "size": 192,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tailwind.config.js": {
+    "file": "tailwind.config.js",
+    "lines": 57,
+    "size": 1697,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tsconfig.json": {
+    "file": "tsconfig.json",
+    "lines": 47,
+    "size": 973,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "ultimate-smart-receiver.py": {
+    "file": "ultimate-smart-receiver.py",
+    "lines": 938,
+    "size": 34078,
+    "functions": [
+      {
+        "name": "main",
+        "line": 920
+      },
+      {
+        "name": "__init__",
+        "line": 32
+      },
+      {
+        "name": "start_monitoring",
+        "line": 109
+      },
+      {
+        "name": "check_existing_files",
+        "line": 148
+      },
+      {
+        "name": "process_file_smart",
+        "line": 169
+      },
+      {
+        "name": "has_active_session",
+        "line": 210
+      },
+      {
+        "name": "archive_previous_session",
+        "line": 220
+      },
+      {
+        "name": "cleanup_brain",
+        "line": 235
+      },
+      {
+        "name": "process_artifacts_bundle",
+        "line": 246
+      },
+      {
+        "name": "detect_bundle_type",
+        "line": 288
+      },
+      {
+        "name": "analyze_supabase_artifacts",
+        "line": 299
+      },
+      {
+        "name": "should_auto_deploy",
+        "line": 316
+      },
+      {
+        "name": "auto_deploy_artifacts",
+        "line": 352
+      },
+      {
+        "name": "sort_artifacts_by_priority",
+        "line": 402
+      },
+      {
+        "name": "process_artifact_content",
+        "line": 418
+      },
+      {
+        "name": "fix_nextjs_imports",
+        "line": 433
+      },
+      {
+        "name": "get_deployment_path",
+        "line": 446
+      },
+      {
+        "name": "generate_enhanced_filename",
+        "line": 470
+      },
+      {
+        "name": "sanitize_filename",
+        "line": 527
+      },
+      {
+        "name": "process_supabase_sql",
+        "line": 540
+      },
+      {
+        "name": "process_deployment_guide",
+        "line": 549
+      },
+      {
+        "name": "process_copilot_instructions",
+        "line": 558
+      },
+      {
+        "name": "process_text_file",
+        "line": 567
+      },
+      {
+        "name": "parse_text_artifact",
+        "line": 596
+      },
+      {
+        "name": "sync_with_supabase",
+        "line": 636
+      },
+      {
+        "name": "fetch_supabase_schema",
+        "line": 659
+      },
+      {
+        "name": "create_fresh_brain",
+        "line": 671
+      },
+      {
+        "name": "update_enhanced_brain",
+        "line": 729
+      },
+      {
+        "name": "create_manual_deployment_instructions",
+        "line": 784
+      },
+      {
+        "name": "open_vscode",
+        "line": 855
+      },
+      {
+        "name": "open_vscode_with_file",
+        "line": 872
+      },
+      {
+        "name": "__init__",
+        "line": 900
+      },
+      {
+        "name": "on_created",
+        "line": 903
+      }
+    ],
+    "classes": [
+      {
+        "name": "UltimateSmartReceiver",
+        "line": 31
+      },
+      {
+        "name": "SmartWatcher",
+        "line": 897
+      }
+    ],
+    "imports": [
+      "pathlib",
+      "datetime",
+      "watchdog.observers",
+      "watchdog.events"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "vercel.json": {
+    "file": "vercel.json",
+    "lines": 43,
+    "size": 1436,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".github\\workflows\\ci.yml": {
+    "file": ".github\\workflows\\ci.yml",
+    "lines": 76,
+    "size": 1993,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".github\\workflows\\update-supabase-schema.yml": {
+    "file": ".github\\workflows\\update-supabase-schema.yml",
+    "lines": 113,
+    "size": 4101,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".husky\\_\\.gitignore": {
+    "file": ".husky\\_\\.gitignore",
+    "lines": 1,
+    "size": 1,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".vscode\\settings.json": {
+    "file": ".vscode\\settings.json",
+    "lines": 24,
+    "size": 660,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  ".vscode\\tasks.json": {
+    "file": ".vscode\\tasks.json",
+    "lines": 23,
+    "size": 475,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\globals.css": {
+    "file": "app\\globals.css",
+    "lines": 220,
+    "size": 4319,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\layout.tsx": {
+    "file": "app\\layout.tsx",
+    "lines": 45,
+    "size": 1208,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\page.tsx": {
+    "file": "app\\page.tsx",
+    "lines": 301,
+    "size": 9652,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\providers.tsx": {
+    "file": "app\\providers.tsx",
+    "lines": 30,
+    "size": 664,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(auth)\\forgot-password\\page.tsx": {
+    "file": "app\\(auth)\\forgot-password\\page.tsx",
+    "lines": 62,
+    "size": 1985,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(auth)\\login\\page.tsx": {
+    "file": "app\\(auth)\\login\\page.tsx",
+    "lines": 313,
+    "size": 9609,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(auth)\\register\\page.tsx": {
+    "file": "app\\(auth)\\register\\page.tsx",
+    "lines": 611,
+    "size": 21466,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(auth)\\register\\parish\\page.tsx": {
+    "file": "app\\(auth)\\register\\parish\\page.tsx",
+    "lines": 171,
+    "size": 5394,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(auth)\\register\\user\\page.tsx": {
+    "file": "app\\(auth)\\register\\user\\page.tsx",
+    "lines": 121,
+    "size": 3733,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(auth)\\reset-password\\page.tsx": {
+    "file": "app\\(auth)\\reset-password\\page.tsx",
+    "lines": 95,
+    "size": 2837,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\academy\\page.tsx": {
+    "file": "app\\(main)\\academy\\page.tsx",
+    "lines": 8,
+    "size": 196,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\academy\\[id]\\page.tsx": {
+    "file": "app\\(main)\\academy\\[id]\\page.tsx",
+    "lines": 9,
+    "size": 216,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\page.tsx": {
+    "file": "app\\(main)\\library\\page.tsx",
+    "lines": 8,
+    "size": 196,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\audiobooks\\page.tsx": {
+    "file": "app\\(main)\\library\\audiobooks\\page.tsx",
+    "lines": 32,
+    "size": 1206,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\books\\page.tsx": {
+    "file": "app\\(main)\\library\\books\\page.tsx",
+    "lines": 32,
+    "size": 1192,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\favorites\\page.tsx": {
+    "file": "app\\(main)\\library\\favorites\\page.tsx",
+    "lines": 32,
+    "size": 1200,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\prayers\\page.tsx": {
+    "file": "app\\(main)\\library\\prayers\\page.tsx",
+    "lines": 32,
+    "size": 1197,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\songs\\page.tsx": {
+    "file": "app\\(main)\\library\\songs\\page.tsx",
+    "lines": 32,
+    "size": 1189,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\library\\[id]\\page.tsx": {
+    "file": "app\\(main)\\library\\[id]\\page.tsx",
+    "lines": 9,
+    "size": 218,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\order-mass\\page.tsx": {
+    "file": "app\\(main)\\order-mass\\page.tsx",
+    "lines": 8,
+    "size": 203,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\player\\odb.tsx": {
+    "file": "app\\(main)\\player\\odb.tsx",
+    "lines": 8,
+    "size": 205,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\player\\[id]\\page.tsx": {
+    "file": "app\\(main)\\player\\[id]\\page.tsx",
+    "lines": 9,
+    "size": 216,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\(main)\\test-logo\\page.tsx": {
+    "file": "app\\(main)\\test-logo\\page.tsx",
+    "lines": 169,
+    "size": 6777,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\403\\page.tsx": {
+    "file": "app\\403\\page.tsx",
+    "lines": 25,
+    "size": 885,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\404\\page.tsx": {
+    "file": "app\\404\\page.tsx",
+    "lines": 22,
+    "size": 835,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\analytics\\page.tsx": {
+    "file": "app\\admin\\analytics\\page.tsx",
+    "lines": 88,
+    "size": 3294,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\announcements\\page.tsx": {
+    "file": "app\\admin\\announcements\\page.tsx",
+    "lines": 13,
+    "size": 307,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\candles\\page.tsx": {
+    "file": "app\\admin\\candles\\page.tsx",
+    "lines": 157,
+    "size": 5569,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\dashboard\\page.tsx": {
+    "file": "app\\admin\\dashboard\\page.tsx",
+    "lines": 722,
+    "size": 26568,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\email\\page.tsx": {
+    "file": "app\\admin\\email\\page.tsx",
+    "lines": 79,
+    "size": 2832,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\intentions\\page.tsx": {
+    "file": "app\\admin\\intentions\\page.tsx",
+    "lines": 201,
+    "size": 6318,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\monitoring\\page.tsx": {
+    "file": "app\\admin\\monitoring\\page.tsx",
+    "lines": 78,
+    "size": 2273,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\parish\\page.tsx": {
+    "file": "app\\admin\\parish\\page.tsx",
+    "lines": 14,
+    "size": 337,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\admin\\reports\\page.tsx": {
+    "file": "app\\admin\\reports\\page.tsx",
+    "lines": 101,
+    "size": 3532,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\academy\\courses\\route.ts": {
+    "file": "app\\api\\academy\\courses\\route.ts",
+    "lines": 47,
+    "size": 1088,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\academy\\courses\\[courseId]\\lessons\\[lessonId]\\route.ts": {
+    "file": "app\\api\\academy\\courses\\[courseId]\\lessons\\[lessonId]\\route.ts",
+    "lines": 176,
+    "size": 4674,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\academy\\courses\\[courseId]\\lessons\\[lessonId]\\quiz\\route.ts": {
+    "file": "app\\api\\academy\\courses\\[courseId]\\lessons\\[lessonId]\\quiz\\route.ts",
+    "lines": 134,
+    "size": 3865,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\create-payment-intent\\route.ts": {
+    "file": "app\\api\\create-payment-intent\\route.ts",
+    "lines": 88,
+    "size": 2863,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\email\\preview\\route.ts": {
+    "file": "app\\api\\email\\preview\\route.ts",
+    "lines": 108,
+    "size": 3011,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\send-email\\route.ts": {
+    "file": "app\\api\\send-email\\route.ts",
+    "lines": 49,
+    "size": 1477,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\verify-session\\route.ts": {
+    "file": "app\\api\\verify-session\\route.ts",
+    "lines": 53,
+    "size": 1548,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\webhooks\\payment\\route.ts": {
+    "file": "app\\api\\webhooks\\payment\\route.ts",
+    "lines": 228,
+    "size": 7036,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\api\\webhooks\\stripe\\route.ts": {
+    "file": "app\\api\\webhooks\\stripe\\route.ts",
+    "lines": 237,
+    "size": 7207,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\cancel\\page.tsx": {
+    "file": "app\\cancel\\page.tsx",
+    "lines": 92,
+    "size": 3273,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\church-finder\\page.tsx": {
+    "file": "app\\church-finder\\page.tsx",
+    "lines": 71,
+    "size": 2488,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\dashboard\\page.tsx": {
+    "file": "app\\dashboard\\page.tsx",
+    "lines": 64,
+    "size": 2000,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\live\\page.tsx": {
+    "file": "app\\live\\page.tsx",
+    "lines": 33,
+    "size": 1164,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\messages\\page.tsx": {
+    "file": "app\\messages\\page.tsx",
+    "lines": 31,
+    "size": 1043,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\success\\page.tsx": {
+    "file": "app\\success\\page.tsx",
+    "lines": 180,
+    "size": 6962,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "app\\suspended\\page.tsx": {
+    "file": "app\\suspended\\page.tsx",
+    "lines": 44,
+    "size": 1408,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ServiceWorkerProvider.tsx": {
+    "file": "components\\ServiceWorkerProvider.tsx",
+    "lines": 8,
+    "size": 230,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\DataGrid.tsx": {
+    "file": "components\\admin\\DataGrid.tsx",
+    "lines": 67,
+    "size": 1870,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\ActivityFeed.tsx": {
+    "file": "components\\admin\\analytics\\ActivityFeed.tsx",
+    "lines": 131,
+    "size": 3985,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\AnalyticsCard.tsx": {
+    "file": "components\\admin\\analytics\\AnalyticsCard.tsx",
+    "lines": 53,
+    "size": 1355,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\AnalyticsDashboard.tsx": {
+    "file": "components\\admin\\analytics\\AnalyticsDashboard.tsx",
+    "lines": 143,
+    "size": 5035,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\CourseMetrics.tsx": {
+    "file": "components\\admin\\analytics\\CourseMetrics.tsx",
+    "lines": 199,
+    "size": 5608,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\index.tsx": {
+    "file": "components\\admin\\analytics\\index.tsx",
+    "lines": 235,
+    "size": 6717,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\StatsCard.tsx": {
+    "file": "components\\admin\\analytics\\StatsCard.tsx",
+    "lines": 45,
+    "size": 1091,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\analytics\\TrendChart.tsx": {
+    "file": "components\\admin\\analytics\\TrendChart.tsx",
+    "lines": 91,
+    "size": 1677,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\announcements\\AnnouncementForm.tsx": {
+    "file": "components\\admin\\announcements\\AnnouncementForm.tsx",
+    "lines": 118,
+    "size": 4174,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\announcements\\AnnouncementsList.tsx": {
+    "file": "components\\admin\\announcements\\AnnouncementsList.tsx",
+    "lines": 146,
+    "size": 5233,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\email\\EmailPreviewTool.tsx": {
+    "file": "components\\admin\\email\\EmailPreviewTool.tsx",
+    "lines": 745,
+    "size": 26669,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\intentions\\MassIntentionDashboard.tsx": {
+    "file": "components\\admin\\intentions\\MassIntentionDashboard.tsx",
+    "lines": 224,
+    "size": 7386,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [
+      {
+        "type": "TODO",
+        "text": "Implement revenue over time data"
+      }
+    ],
+    "empty": false
+  },
+  "components\\admin\\masses\\MassCard.tsx": {
+    "file": "components\\admin\\masses\\MassCard.tsx",
+    "lines": 135,
+    "size": 4793,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\masses\\MassIntentionsManager.tsx": {
+    "file": "components\\admin\\masses\\MassIntentionsManager.tsx",
+    "lines": 141,
+    "size": 3826,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [
+      {
+        "type": "TODO",
+        "text": "Implement add intention */"
+      }
+    ],
+    "empty": false
+  },
+  "components\\admin\\monitoring\\MonitoringDashboard.tsx": {
+    "file": "components\\admin\\monitoring\\MonitoringDashboard.tsx",
+    "lines": 231,
+    "size": 8196,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\monitoring\\NotificationMetrics.tsx": {
+    "file": "components\\admin\\monitoring\\NotificationMetrics.tsx",
+    "lines": 96,
+    "size": 2673,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\monitoring\\WebhookMonitor.tsx": {
+    "file": "components\\admin\\monitoring\\WebhookMonitor.tsx",
+    "lines": 89,
+    "size": 3024,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\parish\\ParishForm.tsx": {
+    "file": "components\\admin\\parish\\ParishForm.tsx",
+    "lines": 107,
+    "size": 3214,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\parish\\ParishList.tsx": {
+    "file": "components\\admin\\parish\\ParishList.tsx",
+    "lines": 119,
+    "size": 3722,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\payments\\PaymentDashboard.tsx": {
+    "file": "components\\admin\\payments\\PaymentDashboard.tsx",
+    "lines": 224,
+    "size": 7096,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\payments\\PaymentStats.tsx": {
+    "file": "components\\admin\\payments\\PaymentStats.tsx",
+    "lines": 36,
+    "size": 1077,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\priests\\PriestForm.tsx": {
+    "file": "components\\admin\\priests\\PriestForm.tsx",
+    "lines": 122,
+    "size": 3681,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\priests\\PriestsList.tsx": {
+    "file": "components\\admin\\priests\\PriestsList.tsx",
+    "lines": 144,
+    "size": 4593,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\reporting\\GeneratedReports.tsx": {
+    "file": "components\\admin\\reporting\\GeneratedReports.tsx",
+    "lines": 112,
+    "size": 3294,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\reporting\\NewReportForm.tsx": {
+    "file": "components\\admin\\reporting\\NewReportForm.tsx",
+    "lines": 255,
+    "size": 7717,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\reporting\\ReportGenerator.tsx": {
+    "file": "components\\admin\\reporting\\ReportGenerator.tsx",
+    "lines": 137,
+    "size": 4163,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\admin\\reporting\\ReportList.tsx": {
+    "file": "components\\admin\\reporting\\ReportList.tsx",
+    "lines": 102,
+    "size": 3609,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\calendar\\MassCalendar.jsx": {
+    "file": "components\\calendar\\MassCalendar.jsx",
+    "lines": 87,
+    "size": 3446,
+    "functions": [
+      {
+        "name": "MassCalendar",
+        "type": "component"
+      }
+    ],
+    "classes": [],
+    "imports": [
+      "react",
+      "lucide-react",
+      "@/lib/supabase"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\common\\Logo.tsx": {
+    "file": "components\\common\\Logo.tsx",
+    "lines": 77,
+    "size": 1969,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\common\\LogoAnimated.tsx": {
+    "file": "components\\common\\LogoAnimated.tsx",
+    "lines": 44,
+    "size": 1068,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\common\\logo\\OremusLogo.tsx": {
+    "file": "components\\common\\logo\\OremusLogo.tsx",
+    "lines": 108,
+    "size": 2832,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\common\\logo\\types.ts": {
+    "file": "components\\common\\logo\\types.ts",
+    "lines": 4,
+    "size": 242,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\dashboard\\QuickStats.tsx": {
+    "file": "components\\dashboard\\QuickStats.tsx",
+    "lines": 227,
+    "size": 6581,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\dashboard\\RecentActivity.tsx": {
+    "file": "components\\dashboard\\RecentActivity.tsx",
+    "lines": 330,
+    "size": 9408,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\AdaptiveGrid.tsx": {
+    "file": "components\\design-system\\AdaptiveGrid.tsx",
+    "lines": 56,
+    "size": 1130,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\AnimatedCard.tsx": {
+    "file": "components\\design-system\\AnimatedCard.tsx",
+    "lines": 51,
+    "size": 1006,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\Button.tsx": {
+    "file": "components\\design-system\\Button.tsx",
+    "lines": 86,
+    "size": 2173,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\GlassCard.tsx": {
+    "file": "components\\design-system\\GlassCard.tsx",
+    "lines": 56,
+    "size": 1138,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\index.ts": {
+    "file": "components\\design-system\\index.ts",
+    "lines": 4,
+    "size": 112,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\ResponsiveContainer.tsx": {
+    "file": "components\\design-system\\ResponsiveContainer.tsx",
+    "lines": 39,
+    "size": 899,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\Toast.tsx": {
+    "file": "components\\design-system\\Toast.tsx",
+    "lines": 113,
+    "size": 2587,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\data-display\\Card.tsx": {
+    "file": "components\\design-system\\data-display\\Card.tsx",
+    "lines": 132,
+    "size": 3949,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\data-display\\index.ts": {
+    "file": "components\\design-system\\data-display\\index.ts",
+    "lines": 3,
+    "size": 73,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\data-display\\List.tsx": {
+    "file": "components\\design-system\\data-display\\List.tsx",
+    "lines": 164,
+    "size": 3691,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\data-display\\Table.tsx": {
+    "file": "components\\design-system\\data-display\\Table.tsx",
+    "lines": 231,
+    "size": 7079,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\data-display\\utils.ts": {
+    "file": "components\\design-system\\data-display\\utils.ts",
+    "lines": 119,
+    "size": 2341,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\forms\\Button.tsx": {
+    "file": "components\\design-system\\forms\\Button.tsx",
+    "lines": 101,
+    "size": 2292,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\forms\\buttonUtils.ts": {
+    "file": "components\\design-system\\forms\\buttonUtils.ts",
+    "lines": 139,
+    "size": 3478,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\forms\\index.ts": {
+    "file": "components\\design-system\\forms\\index.ts",
+    "lines": 4,
+    "size": 107,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\forms\\Input.tsx": {
+    "file": "components\\design-system\\forms\\Input.tsx",
+    "lines": 95,
+    "size": 2174,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\forms\\utils.ts": {
+    "file": "components\\design-system\\forms\\utils.ts",
+    "lines": 97,
+    "size": 2182,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\glass\\GlassCard.tsx": {
+    "file": "components\\design-system\\glass\\GlassCard.tsx",
+    "lines": 61,
+    "size": 1406,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\glass\\GlassPanel.tsx": {
+    "file": "components\\design-system\\glass\\GlassPanel.tsx",
+    "lines": 92,
+    "size": 2162,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\glass\\index.ts": {
+    "file": "components\\design-system\\glass\\index.ts",
+    "lines": 3,
+    "size": 84,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\glass\\utils.ts": {
+    "file": "components\\design-system\\glass\\utils.ts",
+    "lines": 57,
+    "size": 1487,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\navigation\\Breadcrumbs.tsx": {
+    "file": "components\\design-system\\navigation\\Breadcrumbs.tsx",
+    "lines": 85,
+    "size": 2503,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\navigation\\index.ts": {
+    "file": "components\\design-system\\navigation\\index.ts",
+    "lines": 4,
+    "size": 109,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\navigation\\Navbar.tsx": {
+    "file": "components\\design-system\\navigation\\Navbar.tsx",
+    "lines": 191,
+    "size": 4883,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\navigation\\Sidebar.tsx": {
+    "file": "components\\design-system\\navigation\\Sidebar.tsx",
+    "lines": 125,
+    "size": 3681,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\design-system\\navigation\\utils.ts": {
+    "file": "components\\design-system\\navigation\\utils.ts",
+    "lines": 80,
+    "size": 1824,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\academy\\AcademyScreen.tsx": {
+    "file": "components\\features\\academy\\AcademyScreen.tsx",
+    "lines": 286,
+    "size": 10333,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\academy\\CourseViewer.tsx": {
+    "file": "components\\features\\academy\\CourseViewer.tsx",
+    "lines": 245,
+    "size": 8102,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\admin\\Dashboard.tsx": {
+    "file": "components\\features\\admin\\Dashboard.tsx",
+    "lines": 34,
+    "size": 928,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\candle\\OremusCandle.tsx": {
+    "file": "components\\features\\candle\\OremusCandle.tsx",
+    "lines": 166,
+    "size": 4958,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\candle\\VirtualCandle.tsx": {
+    "file": "components\\features\\candle\\VirtualCandle.tsx",
+    "lines": 98,
+    "size": 2638,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\church-finder\\ChurchMap.tsx": {
+    "file": "components\\features\\church-finder\\ChurchMap.tsx",
+    "lines": 0,
+    "size": 0,
+    "empty": true
+  },
+  "components\\features\\library\\LibraryScreen.tsx": {
+    "file": "components\\features\\library\\LibraryScreen.tsx",
+    "lines": 66,
+    "size": 1852,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\ChurchSelector.tsx": {
+    "file": "components\\features\\mass\\ChurchSelector.tsx",
+    "lines": 114,
+    "size": 3623,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\DateTimePicker.tsx": {
+    "file": "components\\features\\mass\\DateTimePicker.tsx",
+    "lines": 115,
+    "size": 3464,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\IntentionForm.tsx": {
+    "file": "components\\features\\mass\\IntentionForm.tsx",
+    "lines": 127,
+    "size": 3841,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\MassIntentionDashboard.tsx": {
+    "file": "components\\features\\mass\\MassIntentionDashboard.tsx",
+    "lines": 128,
+    "size": 4267,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\MassOrderForm.tsx": {
+    "file": "components\\features\\mass\\MassOrderForm.tsx",
+    "lines": 152,
+    "size": 4470,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\OrderMassScreen.tsx": {
+    "file": "components\\features\\mass\\OrderMassScreen.tsx",
+    "lines": 791,
+    "size": 26887,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass\\PaymentSection.tsx": {
+    "file": "components\\features\\mass\\PaymentSection.tsx",
+    "lines": 114,
+    "size": 3252,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\mass-intentions\\MassIntentionDashboard.tsx": {
+    "file": "components\\features\\mass-intentions\\MassIntentionDashboard.tsx",
+    "lines": 185,
+    "size": 6623,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\player\\CorePlayer.tsx": {
+    "file": "components\\features\\player\\CorePlayer.tsx",
+    "lines": 296,
+    "size": 9126,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\player\\CoursePlayer.tsx": {
+    "file": "components\\features\\player\\CoursePlayer.tsx",
+    "lines": 155,
+    "size": 4738,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\player\\InteractivePrayerPlayer.tsx": {
+    "file": "components\\features\\player\\InteractivePrayerPlayer.tsx",
+    "lines": 65,
+    "size": 1661,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\player\\ODBPlayer.tsx": {
+    "file": "components\\features\\player\\ODBPlayer.tsx",
+    "lines": 398,
+    "size": 11968,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\player\\ODBPlayerScreen.tsx": {
+    "file": "components\\features\\player\\ODBPlayerScreen.tsx",
+    "lines": 100,
+    "size": 3242,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\prayer\\InteractiveRosary.tsx": {
+    "file": "components\\features\\prayer\\InteractiveRosary.tsx",
+    "lines": 203,
+    "size": 5830,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\prayer\\PrayerMap.tsx": {
+    "file": "components\\features\\prayer\\PrayerMap.tsx",
+    "lines": 93,
+    "size": 3029,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\prayer\\PrayerPlayer.tsx": {
+    "file": "components\\features\\prayer\\PrayerPlayer.tsx",
+    "lines": 162,
+    "size": 4801,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\features\\search\\SmartSearch.tsx": {
+    "file": "components\\features\\search\\SmartSearch.tsx",
+    "lines": 233,
+    "size": 6880,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\AdaptiveGrid.tsx": {
+    "file": "components\\glass\\AdaptiveGrid.tsx",
+    "lines": 57,
+    "size": 1400,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\AnimatedCard.tsx": {
+    "file": "components\\glass\\AnimatedCard.tsx",
+    "lines": 52,
+    "size": 1263,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Button.tsx": {
+    "file": "components\\glass\\Button.tsx",
+    "lines": 59,
+    "size": 2210,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Calendar.tsx": {
+    "file": "components\\glass\\Calendar.tsx",
+    "lines": 59,
+    "size": 2126,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Card.tsx": {
+    "file": "components\\glass\\Card.tsx",
+    "lines": 51,
+    "size": 1116,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\DatePicker.tsx": {
+    "file": "components\\glass\\DatePicker.tsx",
+    "lines": 157,
+    "size": 5400,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\GlassButton.tsx": {
+    "file": "components\\glass\\GlassButton.tsx",
+    "lines": 50,
+    "size": 1708,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\GlassCard.tsx": {
+    "file": "components\\glass\\GlassCard.tsx",
+    "lines": 71,
+    "size": 1794,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\GlassInput.tsx": {
+    "file": "components\\glass\\GlassInput.tsx",
+    "lines": 30,
+    "size": 836,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\GlassPanel.tsx": {
+    "file": "components\\glass\\GlassPanel.tsx",
+    "lines": 26,
+    "size": 480,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\index.ts": {
+    "file": "components\\glass\\index.ts",
+    "lines": 7,
+    "size": 205,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Input.tsx": {
+    "file": "components\\glass\\Input.tsx",
+    "lines": 52,
+    "size": 1460,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [
+      {
+        "type": "TODO",
+        "text": "Fix typing for textarea support"
+      }
+    ],
+    "empty": false
+  },
+  "components\\glass\\NeumorphicButton.tsx": {
+    "file": "components\\glass\\NeumorphicButton.tsx",
+    "lines": 59,
+    "size": 1218,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Select.tsx": {
+    "file": "components\\glass\\Select.tsx",
+    "lines": 33,
+    "size": 986,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Switch.tsx": {
+    "file": "components\\glass\\Switch.tsx",
+    "lines": 29,
+    "size": 1060,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\Textarea.tsx": {
+    "file": "components\\glass\\Textarea.tsx",
+    "lines": 33,
+    "size": 894,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\glass\\types.ts": {
+    "file": "components\\glass\\types.ts",
+    "lines": 16,
+    "size": 401,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\layout\\ClientLayout.tsx": {
+    "file": "components\\layout\\ClientLayout.tsx",
+    "lines": 30,
+    "size": 753,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\layout\\Navigation.tsx": {
+    "file": "components\\layout\\Navigation.tsx",
+    "lines": 455,
+    "size": 13891,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\layouts\\DashboardLayout.jsx": {
+    "file": "components\\layouts\\DashboardLayout.jsx",
+    "lines": 86,
+    "size": 3060,
+    "functions": [
+      {
+        "name": "DashboardLayout",
+        "type": "component"
+      }
+    ],
+    "classes": [],
+    "imports": [
+      "react",
+      "lucide-react",
+      "next/router",
+      "next/link"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\mass\\ChurchSelector.tsx": {
+    "file": "components\\mass\\ChurchSelector.tsx",
+    "lines": 62,
+    "size": 1833,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\mass\\MassCalendar.tsx": {
+    "file": "components\\mass\\MassCalendar.tsx",
+    "lines": 37,
+    "size": 1026,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\payment\\PaymentStatusBadge.tsx": {
+    "file": "components\\payment\\PaymentStatusBadge.tsx",
+    "lines": 19,
+    "size": 654,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\payment\\PaymentStatusTracker.tsx": {
+    "file": "components\\payment\\PaymentStatusTracker.tsx",
+    "lines": 39,
+    "size": 984,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\payment\\StatusIndicator.tsx": {
+    "file": "components\\payment\\StatusIndicator.tsx",
+    "lines": 35,
+    "size": 892,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\payment\\StatusListener.tsx": {
+    "file": "components\\payment\\StatusListener.tsx",
+    "lines": 45,
+    "size": 1209,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\prayers\\PrayerRequests.jsx": {
+    "file": "components\\prayers\\PrayerRequests.jsx",
+    "lines": 147,
+    "size": 4913,
+    "functions": [
+      {
+        "name": "PrayerRequests",
+        "type": "component"
+      }
+    ],
+    "classes": [],
+    "imports": [
+      "react",
+      "lucide-react",
+      "@/lib/supabase"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\index.ts": {
+    "file": "components\\ui\\index.ts",
+    "lines": 5,
+    "size": 122,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\SplashScreen.tsx": {
+    "file": "components\\ui\\SplashScreen.tsx",
+    "lines": 243,
+    "size": 8110,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\auth\\AuthCard.tsx": {
+    "file": "components\\ui\\auth\\AuthCard.tsx",
+    "lines": 15,
+    "size": 468,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Button\\Button.tsx": {
+    "file": "components\\ui\\Button\\Button.tsx",
+    "lines": 45,
+    "size": 1359,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Button\\index.ts": {
+    "file": "components\\ui\\Button\\index.ts",
+    "lines": 2,
+    "size": 79,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Card\\Card.tsx": {
+    "file": "components\\ui\\Card\\Card.tsx",
+    "lines": 35,
+    "size": 976,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Card\\index.ts": {
+    "file": "components\\ui\\Card\\index.ts",
+    "lines": 2,
+    "size": 71,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Input\\index.ts": {
+    "file": "components\\ui\\Input\\index.ts",
+    "lines": 2,
+    "size": 75,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Input\\Input.tsx": {
+    "file": "components\\ui\\Input\\Input.tsx",
+    "lines": 53,
+    "size": 1635,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Modal\\index.ts": {
+    "file": "components\\ui\\Modal\\index.ts",
+    "lines": 2,
+    "size": 75,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Modal\\Modal.tsx": {
+    "file": "components\\ui\\Modal\\Modal.tsx",
+    "lines": 87,
+    "size": 2649,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Select\\index.ts": {
+    "file": "components\\ui\\Select\\index.ts",
+    "lines": 2,
+    "size": 79,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "components\\ui\\Select\\Select.tsx": {
+    "file": "components\\ui\\Select\\Select.tsx",
+    "lines": 43,
+    "size": 1256,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "configs\\supabase.ts": {
+    "file": "configs\\supabase.ts",
+    "lines": 116,
+    "size": 3183,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "contexts\\AuthContext.tsx": {
+    "file": "contexts\\AuthContext.tsx",
+    "lines": 126,
+    "size": 3246,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "database\\c.php": {
+    "file": "database\\c.php",
+    "lines": 2,
+    "size": 1061,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "database\\mediaRecorder.js": {
+    "file": "database\\mediaRecorder.js",
+    "lines": 167,
+    "size": 4982,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "database\\oremus_analysis_report.md": {
+    "file": "database\\oremus_analysis_report.md",
+    "lines": 353,
+    "size": 11099,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "database\\oremus_schema.json": {
+    "file": "database\\oremus_schema.json",
+    "lines": 1279,
+    "size": 28971,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "docs\\database-schema.md": {
+    "file": "docs\\database-schema.md",
+    "lines": 102,
+    "size": 5977,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "docs\\email-preview-tool-documentation.md": {
+    "file": "docs\\email-preview-tool-documentation.md",
+    "lines": 87,
+    "size": 3057,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "docs\\email-preview-tool.md": {
+    "file": "docs\\email-preview-tool.md",
+    "lines": 61,
+    "size": 2032,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "docs\\schema-management.md": {
+    "file": "docs\\schema-management.md",
+    "lines": 243,
+    "size": 7917,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "docs\\supabase-tables-report.md": {
+    "file": "docs\\supabase-tables-report.md",
+    "lines": 248,
+    "size": 4485,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "docs\\supabase-usage-report.md": {
+    "file": "docs\\supabase-usage-report.md",
+    "lines": 114,
+    "size": 1867,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useAcademy.ts": {
+    "file": "hooks\\useAcademy.ts",
+    "lines": 220,
+    "size": 5697,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useAnalytics.ts": {
+    "file": "hooks\\useAnalytics.ts",
+    "lines": 49,
+    "size": 1831,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useAuth.ts": {
+    "file": "hooks\\useAuth.ts",
+    "lines": 180,
+    "size": 4522,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useCandleNotifications.ts": {
+    "file": "hooks\\useCandleNotifications.ts",
+    "lines": 55,
+    "size": 1865,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useFeatureFlags.ts": {
+    "file": "hooks\\useFeatureFlags.ts",
+    "lines": 86,
+    "size": 2549,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useMassIntentions.ts": {
+    "file": "hooks\\useMassIntentions.ts",
+    "lines": 60,
+    "size": 1547,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useNotifications.ts": {
+    "file": "hooks\\useNotifications.ts",
+    "lines": 25,
+    "size": 934,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useParish.ts": {
+    "file": "hooks\\useParish.ts",
+    "lines": 255,
+    "size": 6430,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\usePayment.ts": {
+    "file": "hooks\\usePayment.ts",
+    "lines": 42,
+    "size": 1040,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\usePaymentStatus.ts": {
+    "file": "hooks\\usePaymentStatus.ts",
+    "lines": 70,
+    "size": 1783,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\usePerformanceMonitor.ts": {
+    "file": "hooks\\usePerformanceMonitor.ts",
+    "lines": 51,
+    "size": 1209,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useProgress.ts": {
+    "file": "hooks\\useProgress.ts",
+    "lines": 181,
+    "size": 4577,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useRealtimeSubscription.ts": {
+    "file": "hooks\\useRealtimeSubscription.ts",
+    "lines": 124,
+    "size": 3107,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useReporting.ts": {
+    "file": "hooks\\useReporting.ts",
+    "lines": 109,
+    "size": 3177,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useResponsiveLayout.ts": {
+    "file": "hooks\\useResponsiveLayout.ts",
+    "lines": 39,
+    "size": 977,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useServiceWorkerRegistration.ts": {
+    "file": "hooks\\useServiceWorkerRegistration.ts",
+    "lines": 32,
+    "size": 937,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useSupabaseQuery.ts": {
+    "file": "hooks\\useSupabaseQuery.ts",
+    "lines": 163,
+    "size": 3783,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "hooks\\useTenant.tsx": {
+    "file": "hooks\\useTenant.tsx",
+    "lines": 60,
+    "size": 1472,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\api.ts": {
+    "file": "lib\\api.ts",
+    "lines": 53,
+    "size": 1417,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\constants.ts": {
+    "file": "lib\\constants.ts",
+    "lines": 103,
+    "size": 2402,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\multi-tenant.ts": {
+    "file": "lib\\multi-tenant.ts",
+    "lines": 192,
+    "size": 4907,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\stripe.ts": {
+    "file": "lib\\stripe.ts",
+    "lines": 38,
+    "size": 1062,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\supabase.js": {
+    "file": "lib\\supabase.js",
+    "lines": 33,
+    "size": 891,
+    "functions": [],
+    "classes": [],
+    "imports": [
+      "@supabase/supabase-js"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\utils.ts": {
+    "file": "lib\\utils.ts",
+    "lines": 45,
+    "size": 1143,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\email\\templates\\paymentFailure.ts": {
+    "file": "lib\\email\\templates\\paymentFailure.ts",
+    "lines": 29,
+    "size": 1153,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\payment\\gateway.ts": {
+    "file": "lib\\payment\\gateway.ts",
+    "lines": 80,
+    "size": 2592,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\payment\\handlers\\failedPayment.ts": {
+    "file": "lib\\payment\\handlers\\failedPayment.ts",
+    "lines": 33,
+    "size": 991,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\supabase\\client.ts": {
+    "file": "lib\\supabase\\client.ts",
+    "lines": 17,
+    "size": 563,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\utils\\TaskScheduler.ts": {
+    "file": "lib\\utils\\TaskScheduler.ts",
+    "lines": 83,
+    "size": 2290,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "lib\\utils\\utils.ts": {
+    "file": "lib\\utils\\utils.ts",
+    "lines": 142,
+    "size": 3970,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "public\\service-worker.ts": {
+    "file": "public\\service-worker.ts",
+    "lines": 152,
+    "size": 4108,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "scripts\\update-imports.ts": {
+    "file": "scripts\\update-imports.ts",
+    "lines": 63,
+    "size": 2048,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\academyService.ts": {
+    "file": "services\\academyService.ts",
+    "lines": 248,
+    "size": 6791,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\analyticsService.ts": {
+    "file": "services\\analyticsService.ts",
+    "lines": 66,
+    "size": 1451,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\audioService.ts": {
+    "file": "services\\audioService.ts",
+    "lines": 137,
+    "size": 3131,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\AuthService.ts": {
+    "file": "services\\AuthService.ts",
+    "lines": 0,
+    "size": 0,
+    "empty": true
+  },
+  "services\\calendarService.ts": {
+    "file": "services\\calendarService.ts",
+    "lines": 43,
+    "size": 958,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\favoriteService.ts": {
+    "file": "services\\favoriteService.ts",
+    "lines": 164,
+    "size": 3838,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\index.ts": {
+    "file": "services\\index.ts",
+    "lines": 7,
+    "size": 178,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\massIntentionService.ts": {
+    "file": "services\\massIntentionService.ts",
+    "lines": 90,
+    "size": 2512,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [
+      {
+        "type": "TODO",
+        "text": "Zintegruj z rzeczywistym API"
+      },
+      {
+        "type": "TODO",
+        "text": "Zintegruj z rzeczywistym API"
+      },
+      {
+        "type": "TODO",
+        "text": "Zintegruj z rzeczywistym API"
+      }
+    ],
+    "empty": false
+  },
+  "services\\mediaService.ts": {
+    "file": "services\\mediaService.ts",
+    "lines": 27,
+    "size": 730,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\notificationService.ts": {
+    "file": "services\\notificationService.ts",
+    "lines": 116,
+    "size": 3171,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [
+      {
+        "type": "TODO",
+        "text": "Get user's preferred language"
+      }
+    ],
+    "empty": false
+  },
+  "services\\organizationService.ts": {
+    "file": "services\\organizationService.ts",
+    "lines": 286,
+    "size": 6576,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\paymentService.ts": {
+    "file": "services\\paymentService.ts",
+    "lines": 112,
+    "size": 2908,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\PaymentStatusService.ts": {
+    "file": "services\\PaymentStatusService.ts",
+    "lines": 30,
+    "size": 867,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\realtimeService.ts": {
+    "file": "services\\realtimeService.ts",
+    "lines": 97,
+    "size": 2391,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\analytics\\AnalyticsService.ts": {
+    "file": "services\\analytics\\AnalyticsService.ts",
+    "lines": 139,
+    "size": 3629,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\auth\\AuthService.ts": {
+    "file": "services\\auth\\AuthService.ts",
+    "lines": 464,
+    "size": 12671,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [
+      {
+        "type": "TODO",
+        "text": "Utw\u00f3rz wpis w tabeli parishes je\u015bli istnieje"
+      }
+    ],
+    "empty": false
+  },
+  "services\\candle\\CandleService.ts": {
+    "file": "services\\candle\\CandleService.ts",
+    "lines": 102,
+    "size": 2719,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\email\\EmailService.new.ts": {
+    "file": "services\\email\\EmailService.new.ts",
+    "lines": 500,
+    "size": 13813,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\email\\EmailService.ts": {
+    "file": "services\\email\\EmailService.ts",
+    "lines": 500,
+    "size": 13813,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\email\\TemplateEngine.ts": {
+    "file": "services\\email\\TemplateEngine.ts",
+    "lines": 139,
+    "size": 4058,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\email\\templates\\emailTemplates.ts": {
+    "file": "services\\email\\templates\\emailTemplates.ts",
+    "lines": 210,
+    "size": 7869,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\mass\\index.ts": {
+    "file": "services\\mass\\index.ts",
+    "lines": 4,
+    "size": 214,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\mass\\MassIntentionService.ts": {
+    "file": "services\\mass\\MassIntentionService.ts",
+    "lines": 120,
+    "size": 3801,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\mass\\MassOrderingService.ts": {
+    "file": "services\\mass\\MassOrderingService.ts",
+    "lines": 25,
+    "size": 652,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\mass\\MassService.ts": {
+    "file": "services\\mass\\MassService.ts",
+    "lines": 106,
+    "size": 2785,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\notification\\NotificationService.ts": {
+    "file": "services\\notification\\NotificationService.ts",
+    "lines": 238,
+    "size": 6174,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\notifications\\NotificationService.ts": {
+    "file": "services\\notifications\\NotificationService.ts",
+    "lines": 259,
+    "size": 7936,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\notifications\\NotificationTaskService.ts": {
+    "file": "services\\notifications\\NotificationTaskService.ts",
+    "lines": 147,
+    "size": 4507,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\payment\\PaymentService.ts": {
+    "file": "services\\payment\\PaymentService.ts",
+    "lines": 53,
+    "size": 1465,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "services\\reporting\\ReportingService.ts": {
+    "file": "services\\reporting\\ReportingService.ts",
+    "lines": 257,
+    "size": 7374,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\bd_kompilacji.txt": {
+    "file": "src\\components\\bd_kompilacji.txt",
+    "lines": 2,
+    "size": 127,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\struktura_komponentw_excellent.txt": {
+    "file": "src\\components\\struktura_komponentw_excellent.txt",
+    "lines": 8,
+    "size": 280,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\typescript.ts": {
+    "file": "src\\components\\typescript.ts",
+    "lines": 2,
+    "size": 107,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\_czysta_struktura_po_refaktori.txt": {
+    "file": "src\\components\\_czysta_struktura_po_refaktori.txt",
+    "lines": 18,
+    "size": 852,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\_struktura_zaktualizowana.txt": {
+    "file": "src\\components\\_struktura_zaktualizowana.txt",
+    "lines": 9,
+    "size": 287,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\layout\\ModernLayout.tsx": {
+    "file": "src\\components\\layout\\ModernLayout.tsx",
+    "lines": 54,
+    "size": 1318,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\components\\test\\SupabaseTest.jsx": {
+    "file": "src\\components\\test\\SupabaseTest.jsx",
+    "lines": 52,
+    "size": 1478,
+    "functions": [
+      {
+        "name": "SupabaseTest",
+        "type": "component"
+      }
+    ],
+    "classes": [],
+    "imports": [
+      "react",
+      "@/lib/supabase"
+    ],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\features\\mass-ordering\\service.ts": {
+    "file": "src\\features\\mass-ordering\\service.ts",
+    "lines": 118,
+    "size": 3319,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\features\\mass-ordering\\types.ts": {
+    "file": "src\\features\\mass-ordering\\types.ts",
+    "lines": 39,
+    "size": 862,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\hooks\\useFeatureFlags.ts": {
+    "file": "src\\hooks\\useFeatureFlags.ts",
+    "lines": 59,
+    "size": 1543,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\hooks\\useResponsiveLayout.ts": {
+    "file": "src\\hooks\\useResponsiveLayout.ts",
+    "lines": 68,
+    "size": 1630,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\services\\featureFlagService.ts": {
+    "file": "src\\services\\featureFlagService.ts",
+    "lines": 81,
+    "size": 2521,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\theme\\index.ts": {
+    "file": "src\\theme\\index.ts",
+    "lines": 87,
+    "size": 1489,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\types\\feature-flags.ts": {
+    "file": "src\\types\\feature-flags.ts",
+    "lines": 18,
+    "size": 433,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\utils\\co_dokadnie_zawiera_krok_7.txt": {
+    "file": "src\\utils\\co_dokadnie_zawiera_krok_7.txt",
+    "lines": 19,
+    "size": 480,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\utils\\struktura_folderw.txt": {
+    "file": "src\\utils\\struktura_folderw.txt",
+    "lines": 7,
+    "size": 157,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\utils\\typescript.ts": {
+    "file": "src\\utils\\typescript.ts",
+    "lines": 2,
+    "size": 76,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "src\\utils\\unknown.js": {
+    "file": "src\\utils\\unknown.js",
+    "lines": 53,
+    "size": 1554,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "supabase\\functions\\process-nfc\\deno.yml": {
+    "file": "supabase\\functions\\process-nfc\\deno.yml",
+    "lines": 5,
+    "size": 158,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "supabase\\functions\\process-nfc\\index.ts": {
+    "file": "supabase\\functions\\process-nfc\\index.ts",
+    "lines": 97,
+    "size": 2437,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "supabase\\functions\\send-candle-notification\\index.ts": {
+    "file": "supabase\\functions\\send-candle-notification\\index.ts",
+    "lines": 59,
+    "size": 1567,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "supabase\\functions\\send-push\\deno.yml": {
+    "file": "supabase\\functions\\send-push\\deno.yml",
+    "lines": 6,
+    "size": 185,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "supabase\\functions\\send-push\\index.ts": {
+    "file": "supabase\\functions\\send-push\\index.ts",
+    "lines": 155,
+    "size": 3912,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "supabase\\functions\\send-push-notification\\index.ts": {
+    "file": "supabase\\functions\\send-push-notification\\index.ts",
+    "lines": 103,
+    "size": 2561,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\auto-database-analyzer.ts": {
+    "file": "tools\\auto-database-analyzer.ts",
+    "lines": 1183,
+    "size": 34685,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\check-multi-tenant-schema.ts": {
+    "file": "tools\\check-multi-tenant-schema.ts",
+    "lines": 310,
+    "size": 9541,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\detect-supabase-tables.js": {
+    "file": "tools\\detect-supabase-tables.js",
+    "lines": 115,
+    "size": 3090,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\detect-table-usage.ts": {
+    "file": "tools\\detect-table-usage.ts",
+    "lines": 170,
+    "size": 4564,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\oremus-project-scanner.ts": {
+    "file": "tools\\oremus-project-scanner.ts",
+    "lines": 1600,
+    "size": 46549,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\README.md": {
+    "file": "tools\\README.md",
+    "lines": 74,
+    "size": 3149,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\schema-extractor.ts": {
+    "file": "tools\\schema-extractor.ts",
+    "lines": 512,
+    "size": 17311,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\supabase-schema-auto-manager.ts": {
+    "file": "tools\\supabase-schema-auto-manager.ts",
+    "lines": 626,
+    "size": 17517,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\supabase-schema-manager.ts": {
+    "file": "tools\\supabase-schema-manager.ts",
+    "lines": 102,
+    "size": 3034,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "tools\\validate-migrations.ts": {
+    "file": "tools\\validate-migrations.ts",
+    "lines": 260,
+    "size": 7538,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\analytics.ts": {
+    "file": "types\\analytics.ts",
+    "lines": 50,
+    "size": 1282,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\api.ts": {
+    "file": "types\\api.ts",
+    "lines": 21,
+    "size": 444,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\audio.ts": {
+    "file": "types\\audio.ts",
+    "lines": 50,
+    "size": 1043,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\auth.ts": {
+    "file": "types\\auth.ts",
+    "lines": 56,
+    "size": 1231,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\candle.ts": {
+    "file": "types\\candle.ts",
+    "lines": 28,
+    "size": 553,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\church.ts": {
+    "file": "types\\church.ts",
+    "lines": 446,
+    "size": 8886,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\forms.d.ts": {
+    "file": "types\\forms.d.ts",
+    "lines": 11,
+    "size": 181,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\logo.ts": {
+    "file": "types\\logo.ts",
+    "lines": 4,
+    "size": 242,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\mass-intention.ts": {
+    "file": "types\\mass-intention.ts",
+    "lines": 98,
+    "size": 1936,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\mass.ts": {
+    "file": "types\\mass.ts",
+    "lines": 78,
+    "size": 1404,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\multi-tenant.ts": {
+    "file": "types\\multi-tenant.ts",
+    "lines": 120,
+    "size": 2996,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\notifications.ts": {
+    "file": "types\\notifications.ts",
+    "lines": 51,
+    "size": 1115,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\parish.ts": {
+    "file": "types\\parish.ts",
+    "lines": 98,
+    "size": 1817,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\payment.ts": {
+    "file": "types\\payment.ts",
+    "lines": 32,
+    "size": 738,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\push-notification.d.ts": {
+    "file": "types\\push-notification.d.ts",
+    "lines": 68,
+    "size": 1868,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\supabase-generated.ts": {
+    "file": "types\\supabase-generated.ts",
+    "lines": 390,
+    "size": 10744,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\supabase.ts": {
+    "file": "types\\supabase.ts",
+    "lines": 390,
+    "size": 10744,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "types\\window.d.ts": {
+    "file": "types\\window.d.ts",
+    "lines": 5,
+    "size": 61,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "utils\\analytics.ts": {
+    "file": "utils\\analytics.ts",
+    "lines": 15,
+    "size": 414,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "utils\\featureFlags.ts": {
+    "file": "utils\\featureFlags.ts",
+    "lines": 12,
+    "size": 595,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\EmailService.test.ts": {
+    "file": "__tests__\\EmailService.test.ts",
+    "lines": 542,
+    "size": 16216,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\EmailServiceIntegration.test.ts": {
+    "file": "__tests__\\EmailServiceIntegration.test.ts",
+    "lines": 24,
+    "size": 1352,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\MassIntentionDashboard.test.tsx": {
+    "file": "__tests__\\MassIntentionDashboard.test.tsx",
+    "lines": 117,
+    "size": 3430,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\MassOrderForm.test.tsx": {
+    "file": "__tests__\\MassOrderForm.test.tsx",
+    "lines": 132,
+    "size": 4557,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\NotificationService.test.ts": {
+    "file": "__tests__\\NotificationService.test.ts",
+    "lines": 320,
+    "size": 9820,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\NotificationService.test.tsx": {
+    "file": "__tests__\\NotificationService.test.tsx",
+    "lines": 264,
+    "size": 7888,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\OremusCandle.test.tsx": {
+    "file": "__tests__\\OremusCandle.test.tsx",
+    "lines": 90,
+    "size": 2339,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\OremusLogo.test.tsx": {
+    "file": "__tests__\\OremusLogo.test.tsx",
+    "lines": 22,
+    "size": 775,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\PaymentService.test.ts": {
+    "file": "__tests__\\PaymentService.test.ts",
+    "lines": 125,
+    "size": 3962,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\PaymentWebhook.test.ts": {
+    "file": "__tests__\\PaymentWebhook.test.ts",
+    "lines": 173,
+    "size": 4662,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\PrayerMap.test.tsx": {
+    "file": "__tests__\\PrayerMap.test.tsx",
+    "lines": 79,
+    "size": 2672,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\PrayerPlayer.test.tsx": {
+    "file": "__tests__\\PrayerPlayer.test.tsx",
+    "lines": 40,
+    "size": 1209,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  },
+  "__tests__\\VirtualCandle.test.tsx": {
+    "file": "__tests__\\VirtualCandle.test.tsx",
+    "lines": 52,
+    "size": 1530,
+    "functions": [],
+    "classes": [],
+    "imports": [],
+    "exports": [],
+    "todos": [],
+    "empty": false
+  }
+}

@@ -1,4 +1,4 @@
-// web/components/features/player/InteractivePrayerPlayer.tsx
+﻿// web/components/features/player/InteractivePrayerPlayer.tsx
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
@@ -8,9 +8,9 @@ import {
   Church, Heart, CheckCircle, AlertCircle, Loader,
   MessageCircle, Eye, EyeOff, Settings, X
 } from 'lucide-react'
-import GlassCard from '@/components/glass/GlassCard'
-import { GlassButton } from '@/components/glass/GlassButton'
-import GlassModal from '@/components/glass/GlassModal'
+import GlassCard from '@/components/ui/Card'
+import { GlassButton } from '@/components/ui/Button'
+import GlassModal from '@/components/ui/Modal'
 import { toast } from 'react-hot-toast'
 
 // Typy dla interaktywnej modlitwy
@@ -32,17 +32,17 @@ interface InteractivePrayer {
   thumbnail: string
 }
 
-// Przykładowa interaktywna msza
+// PrzykÅ‚adowa interaktywna msza
 const sampleMass: InteractivePrayer = {
   id: '1',
-  title: 'Msza Święta - Dialog Liturgiczny',
+  title: 'Msza ÅšwiÄ™ta - Dialog Liturgiczny',
   type: 'mass',
   thumbnail: 'https://images.unsplash.com/photo-1559882869-0aa7e65ce3da',
   segments: [
     {
       id: '1',
       type: 'priest',
-      text: 'W imię Ojca i Syna, i Ducha Świętego.',
+      text: 'W imiÄ™ Ojca i Syna, i Ducha ÅšwiÄ™tego.',
       waitForResponse: true,
       expectedResponse: 'Amen',
       duration: 3000

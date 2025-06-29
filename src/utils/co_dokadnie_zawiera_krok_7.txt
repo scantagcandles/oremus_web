@@ -1,0 +1,19 @@
+📄 Document Management System
+├── PDF Generation
+│   ├── Potwierdzenia zamówień
+│   ├── Certyfikaty mszy
+│   ├── Rachunki/Faktury
+│   └── Raporty miesięczne
+├── Email System
+│   ├── Transactional emails
+│   ├── Notifications
+│   ├── Reminders
+│   └── Newsletter
+├── Template Management
+│   ├── Customizable templates
+│   ├── Multi-language support
+│   └── Branding options
+└── Storage & Retrieval
+    ├── Secure document storage
+    ├── Download management
+    └── Document history

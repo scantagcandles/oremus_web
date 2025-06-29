@@ -11,6 +11,24 @@ System zarządzania intencjami mszalnymi dla parafii.
 - 📊 Panel administratora z analityką
 - 🔄 Śledzenie statusu w czasie rzeczywistym
 - 📈 Zaawansowane monitorowanie
+- ✉️ System zarządzania szablonami email (podgląd, testowanie, wysyłka)
+
+## Narzędzia administracyjne
+
+### Email Preview Tool
+
+Narzędzie do zarządzania szablonami email umożliwia:
+
+- Przeglądanie wszystkich szablonów email w systemie
+- Filtrowanie według kategorii i języka
+- Testowanie szablonów z różnymi danymi
+- Podgląd w formie HTML, tekst, oraz widok mobilny
+- Wysyłanie testowych wiadomości email
+- Kopiowanie kodu HTML szablonu
+
+Dostęp: `/admin/email`
+
+Dokumentacja: [Email Preview Tool Documentation](./docs/email-preview-tool-documentation.md)
 
 ## Technologie
 
@@ -30,22 +48,26 @@ System zarządzania intencjami mszalnymi dla parafii.
 ## Instalacja
 
 1. Sklonuj repozytorium:
+
 ```bash
 git clone https://github.com/twoj-org/oremus-web.git
 cd oremus-web
 ```
 
 2. Zainstaluj zależności:
+
 ```bash
 npm install
 ```
 
 3. Skonfiguruj zmienne środowiskowe:
+
 ```bash
 cp .env.example .env.local
 ```
 
 4. Uzupełnij `.env.local` o wymagane wartości:
+
 ```env
 NEXT_PUBLIC_SUPABASE_URL=xxx
 NEXT_PUBLIC_SUPABASE_ANON_KEY=xxx
@@ -60,11 +82,13 @@ EMAIL_FROM=xxx
 ```
 
 5. Uruchom migracje bazy danych:
+
 ```bash
 npm run db:migrate
 ```
 
 6. Uruchom serwer deweloperski:
+
 ```bash
 npm run dev
 ```
@@ -93,6 +117,7 @@ oremus-web/
 #### Zamawianie mszy
 
 System umożliwia:
+
 - Wybór kościoła na mapie
 - Przeglądanie kalendarza dostępności
 - Wypełnienie formularza intencji
@@ -102,6 +127,7 @@ System umożliwia:
 #### Panel administratora
 
 Administratorzy mogą:
+
 - Zarządzać intencjami
 - Przeglądać płatności
 - Analizować statystyki
@@ -128,6 +154,7 @@ npm run test:coverage
 ## CI/CD
 
 Projekt używa GitHub Actions do:
+
 - Sprawdzania typów TypeScript
 - Lintowania kodu
 - Uruchamiania testów

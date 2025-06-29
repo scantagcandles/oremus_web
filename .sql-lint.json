@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "rules": {
+    "line-length": "off",
+    "no-delete": "off",
+    "no-drop": "off",
+    "uppercase-keywords": "error",
+    "double-quotes": "error",
+    "trailing-semicolon": "error",
+    "aligned-column": "off",
+    "column-new-line": "error",
+    "trailing-whitespace": "error"
+  },
+  "drivers": ["postgresql"]
+}

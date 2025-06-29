@@ -1,0 +1,78 @@
+name: Update Supabase Schema
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'types/**/*.ts'
+      - 'services/**/*.ts'
+      - 'hooks/**/*.ts'
+      - 'src/**/*.ts'
+      - 'app/**/*.ts'
+      - 'components/**/*.tsx'
+  # Allow manual triggering from Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-schema:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install additional tools
+        run: npm install -g ts-node sql-lint glob typescript supabase
+      
+      - name: Run TypeScript validation
+        run: tsc --noEmit tools/schema-extractor.ts tools/detect-table-usage.ts
+        - name: Run schema extractor
+        run: npx ts-node tools/schema-extractor.ts
+        
+      - name: Generate table usage report
+        run: npx ts-node tools/detect-table-usage.ts
+      
+      - name: Check multi-tenant schema
+        run: npx ts-node tools/check-multi-tenant-schema.ts
+        continue-on-error: true
+      
+      - name: Validate SQL schema
+        run: sql-lint --config .sql-lint.json supabase/migrations/00000000000000_oremus_schema.sql
+        continue-on-error: true
+      
+      - name: Generate ERD (if Supabase CLI available)
+        run: |
+          if command -v supabase &> /dev/null; then
+            mkdir -p docs/diagrams
+            supabase db diagram -o docs/diagrams/database-erd.png
+          else
+            echo "Supabase CLI not available, skipping ERD generation"
+          fi
+        continue-on-error: true
+      
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --name-only | grep -q "supabase/migrations\|docs/"; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit changes if needed
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add supabase/migrations/00000000000000_oremus_schema.sql docs/database-schema.md docs/supabase-usage-report.md docs/multi-tenant-analysis.md docs/diagrams
+          git commit -m "chore: Update Supabase schema based on code changes"
+          git push

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 import { Map, Marker } from 'react-map-gl'
@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import { searchChurches } from '@/services/churchService'
 import { Church } from '@/types/mass'
 import { GlassInput } from '../glass/GlassInput'
-import { GlassButton } from '../glass/GlassButton'
+import { GlassButton } from '@/components/ui/Button'
 
 interface ChurchSelectorProps {
   userLocation: { lat: number; lng: number } | null
@@ -26,7 +26,7 @@ export function ChurchSelector({ userLocation, onSelect }: ChurchSelectorProps) 
     <div className="space-y-4">
       <GlassInput
         type="text"
-        placeholder="Szukaj kościoła..."
+        placeholder="Szukaj koÅ›cioÅ‚a..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
@@ -51,11 +51,11 @@ export function ChurchSelector({ userLocation, onSelect }: ChurchSelectorProps) 
       </div>
 
       {selectedChurch && (
-        <GlassButton
+        <Button variant="glass"
           onClick={() => onSelect(selectedChurch.id)}
         >
           Wybierz {selectedChurch.name}
-        </GlassButton>
+        </Button>
       )}
     </div>
   )

@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "rules": {
+    "syntax-error": "error",
+    "undefined-table": "warning",
+    "undefined-column": "warning",
+    "column-case-mismatch": "warning",
+    "table-case-mismatch": "warning"
+  },
+  "ignoreErrors": [
+    "CREATE EXTENSION",
+    "CREATE TYPE"
+  ],
+  "dialect": "postgres"
+}

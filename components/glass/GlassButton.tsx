@@ -1,48 +1,50 @@
-import { ButtonHTMLAttributes, FC } from 'react'
-import { Loader2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import React from 'react';
 
-interface GlassButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary'
-  size?: 'sm' | 'md' | 'lg'
-  loading?: boolean
+interface GlassButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'default' | 'primary' | 'secondary' | 'ghost' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export const GlassButton: FC<GlassButtonProps> = ({
-  children,
-  className,
-  variant = 'primary',
-  size = 'md',
-  loading = false,
-  disabled,
-  ...props
-}) => {
-  return (
-    <button
-      className={cn(
-        'relative inline-flex items-center justify-center rounded-lg font-medium transition-all',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
-        variant === 'primary' && [
-          'bg-secondary text-primary hover:bg-secondary/90',
-          'focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-glass-black'
-        ],
-        variant === 'secondary' && [
-          'bg-glass-white text-white hover:bg-glass-secondary',
-          'focus:outline-none focus:ring-2 focus:ring-white/20'
-        ],
-        size === 'sm' && 'px-3 py-1.5 text-sm',
-        size === 'md' && 'px-4 py-2',
-        size === 'lg' && 'px-6 py-3',
-        loading && 'cursor-wait',
-        className
-      )}
-      disabled={disabled || loading}
-      {...props}
-    >
-      {loading && (
-        <Loader2 className="w-4 h-4 animate-spin mr-2" />
-      )}
-      {children}
-    </button>
-  )
-}
+const combineClasses = (...classes: (string | undefined)[]): string => {
+  return classes.filter(Boolean).join(' ');
+};
+
+export const GlassButton = React.forwardRef<HTMLButtonElement, GlassButtonProps>(
+  ({ className, variant = 'default', size = 'md', children, ...props }, ref) => {
+    const variants = {
+      default: "bg-white/10 hover:bg-white/20 text-white border-white/20",
+      primary: "bg-blue-500/20 hover:bg-blue-500/30 text-blue-100 border-blue-400/30",
+      secondary: "bg-purple-500/20 hover:bg-purple-500/30 text-purple-100 border-purple-400/30",
+      ghost: "bg-transparent hover:bg-white/10 text-white/80 border-transparent",
+      outline: "bg-transparent hover:bg-white/10 text-white border border-white/40 hover:border-white/60"
+    };
+
+    const sizes = {
+      sm: "px-3 py-1.5 text-sm",
+      md: "px-4 py-2 text-base", 
+      lg: "px-6 py-3 text-lg"
+    };
+
+    return (
+      <button
+        ref={ref}
+        className={combineClasses(
+          "inline-flex items-center justify-center rounded-xl",
+          "border backdrop-blur-md",
+          "font-medium transition-all duration-200",
+          "hover:shadow-lg hover:scale-105",
+          "focus:outline-none focus:ring-2 focus:ring-white/20",
+          "disabled:opacity-50 disabled:cursor-not-allowed",
+          variants[variant],
+          sizes[size],
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+GlassButton.displayName = "GlassButton";

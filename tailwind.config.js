@@ -1,37 +1,57 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#1a237e',
-        secondary: '#ffd700',
-        error: '#ef4444',
-        success: '#22c55e',
-        warning: '#f59e0b',
-        info: '#0ea5e9',
-        // Custom colors for different sections
-        mass: '#8b5cf6',
-        prayer: '#ec4899',
-        candle: '#f59e0b',
-        shop: '#10b981',
-        community: '#6366f1',
-        academy: '#8b5cf6',
-        player: '#14b8a6',
-        library: '#f97316',
-        // Glass UI colors
-        'glass-black': 'rgba(17, 25, 40, 0.75)',
-        'glass-white': 'rgba(255, 255, 255, 0.1)',
-        'glass-secondary': 'rgba(255, 215, 0, 0.1)',
-      },
-      backgroundImage: {
-        'gradient-dark': 'linear-gradient(to bottom right, rgb(17, 24, 39), rgb(88, 28, 135))',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        // Sacred Gold System
+        "sacred-gold": "#D4AF37",
+        "sacred-gold-dark": "#B8941F",
+        "sacred-gold-light": "#F4E16D",
+        "sacred-gold-muted": "#E8C547",
+
+        // Deep Blue Enhancement
+        "deep-blue": "#1a1b3a",
+        "deep-blue-light": "#2a2b4a",
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require("tailwindcss-animate")],
+};

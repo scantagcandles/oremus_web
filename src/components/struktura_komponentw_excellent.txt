@@ -1,0 +1,8 @@
+components/
+├── ui/          # Basic UI components ✅
+├── glass/       # Glass UI system ✅
+├── admin/       # Admin-specific ✅
+├── features/    # Feature-based ✅
+├── dashboard/   # Dashboard components ✅
+├── layout/      # Layout components ✅
+└── common/      # Shared components ✅

@@ -1,10 +1,10 @@
-'use client';
+﻿'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { XCircle, ArrowLeft, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-import GlassCard from '@/components/glass/GlassCard';
-import { GlassButton } from '@/components/glass/GlassButton';
+import { GlassCard } from '@/components/glass/GlassCard';
+import { GlassButton } from '@/components/ui/Button';
 
 export default function PaymentCancelled() {
   const router = useRouter();
@@ -30,18 +30,18 @@ export default function PaymentCancelled() {
               </motion.div>
 
               <h1 className="text-3xl font-bold text-white mb-4">
-                Płatność anulowana
+                PÅ‚atnoÅ›Ä‡ anulowana
               </h1>
               
               <p className="text-white/70 mb-8">
-                Twoje zamówienie zostało zapisane. Możesz powrócić do niego 
-                i dokończyć płatność w dowolnym momencie.
+                Twoje zamÃ³wienie zostaÅ‚o zapisane. MoÅ¼esz powrÃ³ciÄ‡ do niego 
+                i dokoÅ„czyÄ‡ pÅ‚atnoÅ›Ä‡ w dowolnym momencie.
               </p>
 
               {paymentId && (
                 <div className="bg-glass-white rounded-xl p-4 mb-8">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/70">ID zamówienia:</span>
+                    <span className="text-white/70">ID zamÃ³wienia:</span>
                     <span className="text-white font-medium">#{paymentId}</span>
                   </div>
                 </div>
@@ -49,38 +49,38 @@ export default function PaymentCancelled() {
 
               <div className="flex flex-col gap-3">
                 {paymentId ? (
-                  <GlassButton
+                  <Button variant="glass"
                     onClick={() => router.push(`/order-mass?resume=${paymentId}`)}
                     className="gap-2"
                   >
-                    Dokończ zamówienie
-                  </GlassButton>
+                    DokoÅ„cz zamÃ³wienie
+                  </Button>
                 ) : (
-                  <GlassButton
+                  <Button variant="glass"
                     onClick={() => router.back()}
                     className="gap-2"
                   >
-                    Spróbuj ponownie
-                  </GlassButton>
+                    SprÃ³buj ponownie
+                  </Button>
                 )}
                 
-                <GlassButton
+                <Button variant="glass"
                   variant="secondary"
                   onClick={() => router.push('/')}
                   className="gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  Wróć do strony głównej
-                </GlassButton>
+                  WrÃ³Ä‡ do strony gÅ‚Ã³wnej
+                </Button>
 
-                <GlassButton
+                <Button variant="glass"
                   variant="secondary"
                   onClick={() => window.open('mailto:contact@oremus.app')}
                   className="gap-2"
                 >
                   <Mail className="w-4 h-4" />
-                  Kontakt z obsługą
-                </GlassButton>
+                  Kontakt z obsÅ‚ugÄ…
+                </Button>
               </div>
             </div>
           </GlassCard>
@@ -89,3 +89,4 @@ export default function PaymentCancelled() {
     </div>
   );
 }
+

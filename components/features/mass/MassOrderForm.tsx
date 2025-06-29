@@ -1,140 +1,152 @@
-'use client';
+"use client";
 
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { useSupabaseQuery } from '@/hooks/useSupabaseQuery';
-import { Calendar, Button, Input, Select } from '@/components/glass';
-import { useAuth } from '@/hooks/useAuth';
-import { usePayment } from '@/hooks/usePayment';
-import '@/types/forms';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useAuth } from "@/hooks/useAuth";
+import { useGeoLocation } from "@/hooks/useGeoLocation";
+import { useFeatureFlags } from "@/hooks/useFeatureFlags";
+import { ChurchSelector } from "./ChurchSelector";
+import { DateTimePicker } from "./DateTimePicker";
+import { IntentionForm } from "./IntentionForm";
+import { PaymentSection } from "./PaymentSection";
+import { GlassPanel } from "../glass/GlassPanel";
+import { Button } from "../glass/Button";
+import { useToast } from "@/hooks/useToast";
+import { massOrderingService } from "@/services/massOrderingService";
 
-const MASS_PRICES = {
-  regular: 50,
-  requiem: 100,
-  thanksgiving: 75,
-};
-
-type MassType = keyof typeof MASS_PRICES;
-
-export const MassOrderForm = () => {
+export default function MassOrderForm() {
   const { user } = useAuth();
-  const { mutate } = useSupabaseQuery('masses');
-  const { processPayment, loading: paymentLoading } = usePayment();
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [massType, setMassType] = useState<MassType | ''>('');
-  const [intention, setIntention] = useState('');
+  const { location } = useGeoLocation();
+  const { isFeatureEnabled } = useFeatureFlags();
+  const { showToast } = useToast();
+  const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [orderData, setOrderData] = useState({
+    churchId: "",
+    date: null,
+    time: "",
+    intention: "",
+    type: "individual",
+    offerer: user?.full_name || "",
+    contact: {
+      email: user?.email || "",
+      phone: user?.phone || "",
+    },
+    paymentMethod: "card",
+  });
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    if (!selectedDate || !massType || !intention || !user?.id) {
-      setError('Please fill in all required fields');
-      return;
+  const handleStepComplete = async (stepData: Partial<typeof orderData>) => {
+    setOrderData((prev) => ({ ...prev, ...stepData }));
+
+    if (step === 4) {
+      await handleSubmit();
+    } else {
+      setStep((prev) => prev + 1);
     }
+  };
 
+  const handleSubmit = async () => {
     setLoading(true);
-    setError(null);
-    
     try {
-      const price = MASS_PRICES[massType];
-      
-      // Create the mass intention
-      const { data: intentionData, error: intentionError } = await mutate({
-        type: massType,
-        intention,
-        scheduled_date: selectedDate.toISOString(),
-        status: 'pending',
-        user_id: user.id,
-        priest_notes: null,
-        created_at: new Date().toISOString()
-      });
-
-      if (intentionError || !intentionData) {
-        throw intentionError || new Error('Failed to create mass intention');
+      const result = await massOrderingService.createMassOrder(orderData);
+      if (result.success && result.data) {
+        showToast({
+          message: "Mass intention submitted successfully!",
+          type: "success",
+        });
+        if (result.data.paymentUrl) {
+          window.location.href = result.data.paymentUrl;
+        }
+      } else {
+        throw new Error(result.error);
       }
-
-      // Process payment
-      const { error: paymentError } = await processPayment(price * 100, {
-        intentionId: intentionData.id,
-        massType,
-        date: selectedDate.toISOString()
+    } catch (error) {
+      showToast({
+        message:
+          error instanceof Error ? error.message : "Failed to submit intention",
+        type: "error",
       });
-
-      if (paymentError) {
-        throw paymentError;
-      }
-
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-      console.error('Error processing mass intention:', err);
     } finally {
       setLoading(false);
     }
   };
 
+  const modernDesign = isFeatureEnabled("modernDesignEnabled");
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto p-6">
-      {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-md text-red-600">
-          {error}
-        </div>
-      )}
-
-      <div className="space-y-2">
-        <label className="block text-sm font-medium">Select Date</label>
-        <Calendar
-          selected={selectedDate}
-          onSelect={setSelectedDate}
-          minDate={new Date()}
-          className="w-full"
-        />
-      </div>
-
-      <div className="space-y-2">
-        <label className="block text-sm font-medium">Mass Type</label>
-        <Select
-          value={massType}
-          onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-            setMassType(e.target.value as MassType);
-          }}
-          required
-          className="w-full"
-        >
-          <option value="">Select a type</option>
-          <option value="regular">Regular Mass</option>
-          <option value="requiem">Requiem Mass</option>
-          <option value="thanksgiving">Thanksgiving Mass</option>
-        </Select>
-      </div>
-
-      <div className="space-y-2">
-        <label className="block text-sm font-medium">Intention</label>
-        <Input
-          type="text"
-          value={intention}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setIntention(e.target.value);
-          }}
-          required
-          placeholder="Enter your mass intention"
-          className="w-full"
-        />
-      </div>
-
-      {massType && (
-        <div className="text-sm text-gray-600">
-          Price: ${MASS_PRICES[massType]}
-        </div>
-      )}
-
-      <Button
-        type="submit"
-        disabled={loading || paymentLoading || !selectedDate || !massType || !intention}
-        className="w-full"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <GlassPanel
+        className={modernDesign ? "backdrop-blur-lg bg-white/10" : ""}
       >
-        {loading || paymentLoading ? 'Processing...' : 'Continue to Payment'}
-      </Button>
-    </form>
+        <div className="max-w-2xl mx-auto p-8">
+          <h1 className="text-3xl font-bold mb-8 text-center">
+            Order a Mass Intention
+          </h1>
+
+          {step === 1 && (
+            <ChurchSelector
+              initialLocation={location}
+              value={orderData.churchId}
+              onComplete={(churchId) => handleStepComplete({ churchId })}
+            />
+          )}
+
+          {step === 2 && (
+            <DateTimePicker
+              churchId={orderData.churchId}
+              value={{ date: orderData.date, time: orderData.time }}
+              onComplete={(dateTime) => handleStepComplete(dateTime)}
+            />
+          )}
+
+          {step === 3 && (
+            <IntentionForm
+              value={{
+                intention: orderData.intention,
+                type: orderData.type,
+                offerer: orderData.offerer,
+                contact: orderData.contact,
+              }}
+              onComplete={(intentionData) => handleStepComplete(intentionData)}
+            />
+          )}
+
+          {step === 4 && (
+            <PaymentSection
+              orderData={orderData}
+              onComplete={(paymentData) => handleStepComplete(paymentData)}
+              isLoading={loading}
+            />
+          )}
+
+          <div className="mt-8 flex justify-between">
+            {step > 1 && (
+              <Button
+                variant="secondary"
+                onClick={() => setStep((prev) => prev - 1)}
+                disabled={loading}
+              >
+                Back
+              </Button>
+            )}
+
+            {step < 4 && (
+              <Button
+                variant="primary"
+                onClick={() => setStep((prev) => prev + 1)}
+                disabled={!orderData.churchId && step === 1}
+                className="ml-auto"
+              >
+                Next
+              </Button>
+            )}
+          </div>
+        </div>
+      </GlassPanel>
+    </motion.div>
   );
-};
+}

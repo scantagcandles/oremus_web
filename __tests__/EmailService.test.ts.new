@@ -1,0 +1,252 @@
+import { EmailService } from '@/services/email/EmailService';
+import { TemplateEngine } from '@/services/email/TemplateEngine';
+import * as EmailTemplates from '@/services/email/templates/emailTemplates';
+import nodemailer from 'nodemailer';
+import { MassIntention, MassIntentionStatus } from '@/types/mass-intention';
+
+jest.mock('nodemailer');
+jest.mock('@/services/email/TemplateEngine');
+
+describe('EmailService', () => {
+  let emailService: EmailService;
+  let mockTransporter: jest.Mocked<any>;
+
+  beforeEach(() => {
+    mockTransporter = {
+      sendMail: jest.fn().mockResolvedValue({})
+    };
+
+    (nodemailer.createTransport as jest.Mock).mockReturnValue(mockTransporter);
+    
+    // Clear singleton instance for testing
+    // @ts-ignore - Private field access for testing
+    EmailService.instance = undefined;
+    emailService = EmailService.getInstance();
+    
+    // Mock the TemplateEngine.renderEmail method
+    (TemplateEngine.renderEmail as jest.Mock).mockImplementation((template, vars) => {
+      return `<html><body>Mocked email content for ${vars.title || 'Untitled'}</body></html>`;
+    });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should send a basic email', async () => {
+    const emailData = {
+      to: 'test@example.com',
+      subject: 'Test Subject',
+      text: 'Test message',
+    };
+
+    await emailService.sendEmail(emailData);
+
+    expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        from: expect.any(String),
+        to: 'test@example.com',
+        subject: 'Test Subject',
+        text: 'Test message',
+      })
+    );
+  });
+
+  it('should send a payment confirmation email', async () => {
+    const massIntention: MassIntention = {
+      id: 'intention-123',
+      parish_id: 'parish-456',
+      intention_for: 'John Smith',
+      mass_date: '2025-07-15',
+      mass_type: 'regular',
+      status: MassIntentionStatus.PAID,
+      payment_id: 'payment-789',
+      payment_status: 'succeeded',
+      is_paid: true,
+      email: 'john@example.com',
+      created_at: '2025-06-20',
+      updated_at: '2025-06-20'
+    };
+
+    const paymentData = {
+      email: 'john@example.com',
+      intentionDetails: massIntention,
+      paymentAmount: 50,
+      currency: 'USD',
+      receiptUrl: 'https://example.com/receipt/123'
+    };
+
+    await emailService.sendPaymentConfirmation(paymentData);
+
+    // Verify template engine was called with correct template
+    expect(TemplateEngine.renderEmail).toHaveBeenCalledWith(
+      EmailTemplates.PAYMENT_CONFIRMATION,
+      expect.objectContaining({
+        paymentAmount: 50,
+        currency: 'USD',
+        receiptUrl: 'https://example.com/receipt/123',
+        intentionDetails: expect.objectContaining({
+          massDate: expect.any(String),
+          massType: 'regular',
+          intentionFor: 'John Smith'
+        })
+      })
+    );
+
+    // Verify email was sent
+    expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: 'john@example.com',
+        subject: 'Payment Confirmation - Oremus',
+        html: expect.any(String),
+        text: expect.any(String)
+      })
+    );
+  });
+
+  it('should send a payment failure email', async () => {
+    const paymentFailureData = {
+      email: 'john@example.com',
+      intentionId: 'intention-123',
+      amount: 50,
+      currency: 'USD',
+      error: 'Card declined'
+    };
+
+    await emailService.sendPaymentFailure(paymentFailureData);
+
+    // Verify template engine was called with correct template
+    expect(TemplateEngine.renderEmail).toHaveBeenCalledWith(
+      EmailTemplates.PAYMENT_FAILURE,
+      expect.objectContaining({
+        amount: 50,
+        currency: 'USD',
+        error: 'Card declined',
+        intentionId: 'intention-123'
+      })
+    );
+
+    // Verify email was sent
+    expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: 'john@example.com',
+        subject: 'Payment Failed - Oremus',
+        html: expect.any(String),
+        text: expect.any(String)
+      })
+    );
+  });
+
+  it('should send a refund confirmation email', async () => {
+    const massIntention: MassIntention = {
+      id: 'intention-123',
+      parish_id: 'parish-456',
+      intention_for: 'John Smith',
+      mass_date: '2025-07-15',
+      mass_type: 'regular',
+      status: MassIntentionStatus.REFUNDED,
+      payment_id: 'payment-789',
+      payment_status: 'refunded',
+      is_paid: false,
+      email: 'john@example.com',
+      created_at: '2025-06-20',
+      updated_at: '2025-06-20'
+    };
+
+    const refundData = {
+      email: 'john@example.com',
+      intentionDetails: massIntention,
+      amount: 50,
+      currency: 'USD'
+    };
+
+    await emailService.sendRefundConfirmation(refundData);
+
+    // Verify template engine was called with correct template
+    expect(TemplateEngine.renderEmail).toHaveBeenCalledWith(
+      EmailTemplates.REFUND_CONFIRMATION,
+      expect.objectContaining({
+        amount: 50,
+        currency: 'USD',
+        intentionDetails: expect.objectContaining({
+          massDate: expect.any(String),
+          intentionFor: 'John Smith'
+        })
+      })
+    );
+
+    // Verify email was sent
+    expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: 'john@example.com',
+        subject: 'Refund Confirmation - Oremus',
+        html: expect.any(String),
+        text: expect.any(String)
+      })
+    );
+  });
+
+  it('should send a mass intention reminder', async () => {
+    const reminderData = {
+      intention_for: 'John Smith',
+      mass_date: '2025-07-15',
+      parish_name: 'St. Mary\'s Church',
+      type: 'day_before'
+    };
+
+    await emailService.sendIntentionReminder('john@example.com', reminderData, 'en');
+
+    // Verify template engine was called with correct template
+    expect(TemplateEngine.renderEmail).toHaveBeenCalledWith(
+      EmailTemplates.MASS_INTENTION_REMINDER,
+      expect.objectContaining({
+        intention_for: 'John Smith',
+        mass_date: expect.any(String),
+        parish_name: 'St. Mary\'s Church',
+        type: 'day_before'
+      })
+    );
+
+    // Verify email was sent
+    expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: 'john@example.com',
+        subject: 'Your Mass Intention Tomorrow',
+        html: expect.any(String),
+        text: expect.any(String)
+      })
+    );
+  });
+
+  it('should send a Polish mass intention reminder', async () => {
+    const reminderData = {
+      intention_for: 'Jan Kowalski',
+      mass_date: '2025-07-15',
+      parish_name: 'Kościół św. Marii',
+      type: 'day_before'
+    };
+
+    await emailService.sendIntentionReminder('jan@example.com', reminderData, 'pl');
+
+    // Verify template engine was called with correct template
+    expect(TemplateEngine.renderEmail).toHaveBeenCalledWith(
+      EmailTemplates.MASS_INTENTION_REMINDER_PL,
+      expect.objectContaining({
+        intention_for: 'Jan Kowalski',
+        mass_date: expect.any(String),
+        parish_name: 'Kościół św. Marii',
+        type: 'day_before'
+      })
+    );
+
+    // Verify email was sent
+    expect(mockTransporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: 'jan@example.com',
+        subject: 'Msza święta jutro',
+        html: expect.any(String),
+        text: expect.any(String)
+      })
+    );
+  });
+});

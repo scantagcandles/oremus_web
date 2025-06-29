@@ -1,0 +1,1279 @@
+{
+  "generated": "2025-06-25T05:22:33.409Z",
+  "project": "OREMUS",
+  "tablesCount": 15,
+  "columnsCount": 166,
+  "tables": [
+    {
+      "name": "users",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "nullable": false,
+          "unique": true
+        },
+        {
+          "name": "password_hash",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "first_name",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "last_name",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "role",
+          "type": "text",
+          "nullable": false,
+          "default": "'user'"
+        },
+        {
+          "name": "email_verified",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "two_factor_enabled",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "last_login",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [],
+      "sourceFiles": [
+        "project-analysis",
+        "parish.ts",
+        "AuthService.ts"
+      ],
+      "category": "auth"
+    },
+    {
+      "name": "organizations",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "slug",
+          "type": "text",
+          "nullable": false,
+          "unique": true
+        },
+        {
+          "name": "custom_domain",
+          "type": "text",
+          "nullable": true,
+          "unique": true
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "default": "'pending'"
+        },
+        {
+          "name": "plan",
+          "type": "text",
+          "nullable": false,
+          "default": "'basic'"
+        },
+        {
+          "name": "contact_email",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "address",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "nip",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "regon",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "settings",
+          "type": "jsonb",
+          "nullable": false,
+          "default": "'{}'"
+        },
+        {
+          "name": "branding",
+          "type": "jsonb",
+          "nullable": false,
+          "default": "'{}'"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [],
+      "sourceFiles": [
+        "project-analysis",
+        "multi-tenant.ts",
+        "organizationService.ts"
+      ],
+      "category": "core"
+    },
+    {
+      "name": "memberships",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "organizations.id"
+        },
+        {
+          "name": "role",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "permissions",
+          "type": "jsonb",
+          "nullable": false,
+          "default": "'{}'"
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "default": "'active'"
+        },
+        {
+          "name": "invited_by",
+          "type": "uuid",
+          "nullable": true,
+          "references": "users.id"
+        },
+        {
+          "name": "invited_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "joined_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "invited_by",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "multi-tenant.ts"
+      ],
+      "category": "core"
+    },
+    {
+      "name": "payments",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "organizations.id"
+        },
+        {
+          "name": "stripe_payment_id",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "amount",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "currency",
+          "type": "text",
+          "nullable": false,
+          "default": "'PLN'"
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "metadata",
+          "type": "jsonb",
+          "nullable": false,
+          "default": "'{}'"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "payment.ts",
+        "PaymentService.ts",
+        "paymentService.ts",
+        "PaymentStatusService.ts"
+      ],
+      "category": "business"
+    },
+    {
+      "name": "mass_intentions",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "organizations.id"
+        },
+        {
+          "name": "church_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "churches.id"
+        },
+        {
+          "name": "intention_text",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "mass_date",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "default": "'pending'"
+        },
+        {
+          "name": "payment_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "payments.id"
+        },
+        {
+          "name": "priest_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "users.id"
+        },
+        {
+          "name": "amount",
+          "type": "integer",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "church_id",
+          "referencedTable": "churches",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "payment_id",
+          "referencedTable": "payments",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "priest_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "mass-intention.ts",
+        "mass.ts",
+        "parish.ts",
+        "MassIntentionService.ts",
+        "useMassIntentions.ts",
+        "MassOrderingService.ts",
+        "MassService.ts",
+        "massIntentionService.ts"
+      ],
+      "category": "business"
+    },
+    {
+      "name": "oremus_candles",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "nfc_tag_id",
+          "type": "text",
+          "nullable": true,
+          "unique": true
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "organizations.id"
+        },
+        {
+          "name": "purchase_date",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "intention",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "duration_hours",
+          "type": "integer",
+          "nullable": false,
+          "default": "24"
+        },
+        {
+          "name": "lit_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "extinguished_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "candle.ts",
+        "CandleService.ts"
+      ],
+      "category": "business"
+    },
+    {
+      "name": "churches",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "organizations.id"
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "address",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "postal_code",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "country",
+          "type": "text",
+          "nullable": false,
+          "default": "'Poland'"
+        },
+        {
+          "name": "latitude",
+          "type": "decimal",
+          "nullable": true
+        },
+        {
+          "name": "longitude",
+          "type": "decimal",
+          "nullable": true
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "website",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "masses_schedule",
+          "type": "jsonb",
+          "nullable": false,
+          "default": "'{}'"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "church.ts",
+        "mass.ts",
+        "MassService.ts"
+      ],
+      "category": "core"
+    },
+    {
+      "name": "prayers",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "name",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "audio_url",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "duration",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "category",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "language",
+          "type": "text",
+          "nullable": false,
+          "default": "'pl'"
+        },
+        {
+          "name": "is_public",
+          "type": "boolean",
+          "nullable": false,
+          "default": "true"
+        },
+        {
+          "name": "created_by",
+          "type": "uuid",
+          "nullable": true,
+          "references": "users.id"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "created_by",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis"
+      ],
+      "category": "content"
+    },
+    {
+      "name": "user_prayers",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "prayer_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "prayers.id"
+        },
+        {
+          "name": "completed_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "streak_count",
+          "type": "integer",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "last_prayed_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "prayer_id",
+          "referencedTable": "prayers",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis"
+      ],
+      "category": "analytics"
+    },
+    {
+      "name": "courses",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "category",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "lessons_count",
+          "type": "integer",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "price",
+          "type": "integer",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "difficulty_level",
+          "type": "text",
+          "nullable": false,
+          "default": "'beginner'"
+        },
+        {
+          "name": "duration_minutes",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "thumbnail_url",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "is_published",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "created_by",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "created_by",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "CourseMetrics.tsx",
+        "academyService.ts"
+      ],
+      "category": "content"
+    },
+    {
+      "name": "user_progress",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "course_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "courses.id"
+        },
+        {
+          "name": "lesson_id",
+          "type": "uuid",
+          "nullable": true
+        },
+        {
+          "name": "completed",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "score",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "time_spent_minutes",
+          "type": "integer",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "last_accessed_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "completed_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "course_id",
+          "referencedTable": "courses",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis"
+      ],
+      "category": "analytics"
+    },
+    {
+      "name": "quizzes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "course_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "courses.id"
+        },
+        {
+          "name": "questions",
+          "type": "jsonb",
+          "nullable": false
+        },
+        {
+          "name": "correct_answers",
+          "type": "jsonb",
+          "nullable": false
+        },
+        {
+          "name": "passing_score",
+          "type": "integer",
+          "nullable": false,
+          "default": "70"
+        },
+        {
+          "name": "time_limit_minutes",
+          "type": "integer",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "course_id",
+          "referencedTable": "courses",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis"
+      ],
+      "category": "content"
+    },
+    {
+      "name": "community_posts",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "organizations.id"
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "prayer_request",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "anonymous",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "is_public",
+          "type": "boolean",
+          "nullable": false,
+          "default": "true"
+        },
+        {
+          "name": "likes_count",
+          "type": "integer",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis"
+      ],
+      "category": "content"
+    },
+    {
+      "name": "prayer_requests",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "organization_id",
+          "type": "uuid",
+          "nullable": true,
+          "references": "organizations.id"
+        },
+        {
+          "name": "request_text",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": false,
+          "default": "'active'"
+        },
+        {
+          "name": "response_count",
+          "type": "integer",
+          "nullable": false,
+          "default": "0"
+        },
+        {
+          "name": "anonymous",
+          "type": "boolean",
+          "nullable": false,
+          "default": "false"
+        },
+        {
+          "name": "expires_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        },
+        {
+          "column": "organization_id",
+          "referencedTable": "organizations",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis"
+      ],
+      "category": "content"
+    },
+    {
+      "name": "notifications",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "uuid_generate_v4()"
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "nullable": false,
+          "references": "users.id"
+        },
+        {
+          "name": "type",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "message",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "data",
+          "type": "jsonb",
+          "nullable": false,
+          "default": "'{}'"
+        },
+        {
+          "name": "read_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "sent_at",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "default": "now()"
+        }
+      ],
+      "relationships": [
+        {
+          "column": "user_id",
+          "referencedTable": "users",
+          "referencedColumn": "id",
+          "onDelete": "CASCADE"
+        }
+      ],
+      "sourceFiles": [
+        "project-analysis",
+        "notifications.ts",
+        "NotificationService.ts",
+        "NotificationTaskService.ts",
+        "notificationService.ts"
+      ],
+      "category": "system"
+    }
+  ]
+}

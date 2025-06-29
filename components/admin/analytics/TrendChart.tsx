@@ -1,4 +1,6 @@
-import { Line, Bar } from 'react-chartjs-2';
+"use client";
+
+import { Line, Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +12,7 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-} from 'chart.js';
+} from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -30,26 +32,30 @@ interface DataPoint {
 
 interface TrendChartProps {
   data: DataPoint[];
-  type?: 'line' | 'bar';
+  type?: "line" | "bar";
   height?: number;
 }
 
-export function TrendChart({ data, type = 'bar', height = 300 }: TrendChartProps) {
+export function TrendChart({
+  data,
+  type = "bar",
+  height = 300,
+}: TrendChartProps) {
   const chartData = {
-    labels: data.map(d => d.name),
+    labels: data.map((d) => d.name),
     datasets: [
       {
-        label: 'Wartość',
-        data: data.map(d => d.value),
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        borderColor: 'rgba(255, 255, 255, 0.8)',
+        label: "Wartość",
+        data: data.map((d) => d.value),
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        borderColor: "rgba(255, 255, 255, 0.8)",
         borderWidth: 2,
         fill: true,
       },
     ],
   };
 
-  const options: ChartOptions<'line' | 'bar'> = {
+  const options: ChartOptions<"line" | "bar"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -57,31 +63,31 @@ export function TrendChart({ data, type = 'bar', height = 300 }: TrendChartProps
         display: false,
       },
       tooltip: {
-        mode: 'index',
+        mode: "index",
         intersect: false,
       },
     },
     scales: {
       x: {
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
+          color: "rgba(255, 255, 255, 0.1)",
         },
         ticks: {
-          color: 'rgba(255, 255, 255, 0.7)',
+          color: "rgba(255, 255, 255, 0.7)",
         },
       },
       y: {
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
+          color: "rgba(255, 255, 255, 0.1)",
         },
         ticks: {
-          color: 'rgba(255, 255, 255, 0.7)',
+          color: "rgba(255, 255, 255, 0.7)",
         },
       },
     },
   };
 
-  const ChartComponent = type === 'line' ? Line : Bar;
+  const ChartComponent = type === "line" ? Line : Bar;
 
   return (
     <div style={{ height }}>

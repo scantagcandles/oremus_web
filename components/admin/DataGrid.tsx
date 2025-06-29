@@ -1,14 +1,16 @@
-import { FC } from 'react'
-import { motion } from 'framer-motion'
-import { MoreVertical } from 'lucide-react'
-import { cn } from '@/lib/utils'
+"use client";
+
+import { FC } from "react";
+import { motion } from "framer-motion";
+import { MoreVertical } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface DataGridProps {
-  data: any[]
+  data: any[];
   columns: {
-    field: string
-    headerName: string
-  }[]
+    field: string;
+    headerName: string;
+  }[];
 }
 
 export const DataGrid: FC<DataGridProps> = ({ data, columns }) => {
@@ -30,8 +32,8 @@ export const DataGrid: FC<DataGridProps> = ({ data, columns }) => {
         </thead>
         <tbody>
           {data.map((row, i) => (
-            <tr 
-              key={row.id || i} 
+            <tr
+              key={row.id || i}
               className={cn(
                 "border-b border-glass-white last:border-0",
                 "hover:bg-glass-white/5 transition-colors"
@@ -55,13 +57,13 @@ export const DataGrid: FC<DataGridProps> = ({ data, columns }) => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
 function renderCellContent(value: any) {
   // Add custom cell renderers here based on value type
-  if (typeof value === 'boolean') {
-    return value ? 'Tak' : 'Nie'
+  if (typeof value === "boolean") {
+    return value ? "Tak" : "Nie";
   }
-  return value
+  return value;
 }

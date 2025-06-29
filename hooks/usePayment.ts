@@ -1,7 +1,7 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react'
-import { PaymentService } from '@/services/PaymentService'
+import { PaymentService } from '@/services/payment/PaymentService'
 import type { PaymentResult } from '@/types/payment'
 
 export function usePayment() {
@@ -39,3 +39,4 @@ export function usePayment() {
     error
   }
 }
+

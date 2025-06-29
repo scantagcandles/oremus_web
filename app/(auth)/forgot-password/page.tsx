@@ -1,9 +1,9 @@
-"use client"
+﻿"use client"
 import { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
-import GlassCard from '@/components/glass/GlassCard'
-import GlassInput from '@/components/glass/GlassInput'
-import GlassButton from '@/components/glass/GlassButton'
+import { GlassCard } from '@/components/glass/GlassCard'
+import { GlassInput } from '@/components/glass/GlassInput'
+import GlassButton from '@/components/ui/Button'
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('')
@@ -46,16 +46,17 @@ export default function ForgotPassword() {
               </div>
             )}
 
-            <GlassButton
+            <Button variant="glass"
               type="submit"
               disabled={loading}
               className="w-full"
             >
               {loading ? 'Sending...' : 'Send Reset Instructions'}
-            </GlassButton>
+            </Button>
           </form>
         )}
       </GlassCard>
     </div>
   )
 }
+

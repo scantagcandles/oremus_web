@@ -1,84 +1,53 @@
-import { createClient } from '@/lib/supabase/client';
-import { PaymentStatus, PaymentType, PaymentMethod } from '@/types/payment';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { loadStripe } from '@stripe/stripe-js'
+import type { PaymentIntent, PaymentMethod } from '@/types/payment'
 
 export class PaymentService {
-  private supabase = createClient();
+  private supabase = createClientComponentClient()
+  private stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY!)
 
-  async createPayment(data: {
-    amount: number;
-    type: PaymentType;
-    method: PaymentMethod;
-    orderId: string;
-    description: string;
-  }) {
-    try {
-      const { data: payment, error } = await this.supabase
-        .from('payments')
-        .insert({
-          amount: data.amount,
-          type: data.type,
-          method: data.method,
-          order_id: data.orderId,
-          description: data.description,
-          status: PaymentStatus.PENDING
-        })
-        .select()
-        .single();
+  async createPayment(params: {
+    amount: number
+    intentionId: string
+    method: PaymentMethod
+  }): Promise<PaymentIntent> {
+    const { data: intention } = await this.supabase
+      .from('mass_intentions')
+      .select('id, church_id')
+      .eq('id', params.intentionId)
+      .single()
 
-      if (error) throw error;
-      return payment;
-    } catch (error) {
-      console.error('Error creating payment:', error);
-      throw error;
+    const response = await fetch('/api/payment/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...params,
+        churchId: intention.church_id
+      })
+    })
+
+    if (!response.ok) {
+      throw new Error('Failed to create payment')
     }
+
+    return response.json()
   }
 
-  async updatePaymentStatus(paymentId: string, status: PaymentStatus) {
-    try {
-      const { data, error } = await this.supabase
-        .from('payments')
-        .update({ status })
-        .eq('id', paymentId)
-        .select()
-        .single();
+  async confirmPayment(intentId: string): Promise<boolean> {
+    const stripe = await this.stripe
+    if (!stripe) throw new Error('Stripe not initialized')
 
-      if (error) throw error;
-      return data;
-    } catch (error) {
-      console.error('Error updating payment status:', error);
-      throw error;
-    }
-  }
+    const { error } = await stripe.confirmPayment({
+      elements: {
+        payment_method: 'card',
+        confirmParams: {
+          return_url: `${window.location.origin}/payment/success`
+        }
+      },
+      clientSecret: intentId
+    })
 
-  async getPaymentById(paymentId: string) {
-    try {
-      const { data, error } = await this.supabase
-        .from('payments')
-        .select('*, orders(*)')
-        .eq('id', paymentId)
-        .single();
-
-      if (error) throw error;
-      return data;
-    } catch (error) {
-      console.error('Error getting payment:', error);
-      throw error;
-    }
-  }
-
-  async getPaymentsByOrderId(orderId: string) {
-    try {
-      const { data, error } = await this.supabase
-        .from('payments')
-        .select('*')
-        .eq('order_id', orderId)
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      return data;
-    } catch (error) {
-      console.error('Error getting order payments:', error);
-      throw error;
-    }
+    if (error) throw new Error(error.message)
+    return true
   }
 }
