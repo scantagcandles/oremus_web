@@ -1,9 +1,9 @@
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function PlayerPage({ params }: Props) {
-  const { id } = params;
+export default async function PlayerPage({ params }: Props) {
+  const { id } = await params;
   const courseId = id; // For backwards compatibility
   // ... rest of component code
 }

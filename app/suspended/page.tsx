@@ -3,24 +3,25 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 // Component to display the organization name from URL params
-function OrganizationInfo({
+async function OrganizationInfo({
   searchParams,
 }: {
-  searchParams: { org?: string };
+  searchParams: Promise<{ org?: string }>;
 }) {
-  const orgName = searchParams.org || "tej parafii";
+  const resolvedSearchParams = await searchParams;
+  const orgName = resolvedSearchParams.org || "tej parafii";
   return <span className="font-medium">{orgName}</span>;
 }
 
-export default function SuspendedPage({
+export default async function SuspendedPage({
   searchParams,
 }: {
-  searchParams: { org?: string };
+  searchParams: Promise<{ org?: string }>;
 }) {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-red-900 to-orange-900">
-      <div className="max-w-lg p-8 text-center bg-white/10 backdrop-blur-lg rounded-lg shadow-lg border border-white/20 text-white">
-        <h1 className="text-3xl font-bold mb-4">Strona zawieszona</h1>
+      <div className="max-w-lg p-8 text-center text-white border rounded-lg shadow-lg bg-white/10 backdrop-blur-lg border-white/20">
+        <h1 className="mb-4 text-3xl font-bold">Strona zawieszona</h1>
         <p className="mb-6">
           Przepraszamy, ale dostęp do{" "}
           <Suspense fallback="tej parafii">
@@ -34,7 +35,7 @@ export default function SuspendedPage({
         </p>
         <Link
           href="https://app.oremus.pl"
-          className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+          className="px-4 py-2 text-white transition bg-red-600 rounded hover:bg-red-700"
         >
           Powrót do strony głównej
         </Link>

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { GlassCard } from '@/components/glass/GlassCard'
 import { GlassInput } from '@/components/glass/GlassInput'
-import GlassButton from '@/components/ui/Button'
+import { GlassButton } from '@/components/glass/GlassButton'
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('')
@@ -12,7 +12,7 @@ export default function ForgotPassword() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const response = await resetPassword({ email })
+    const response = await resetPassword(email)
     if (response.success) {
       setMessage(response.message || 'Check your email for reset instructions')
     }
@@ -42,17 +42,17 @@ export default function ForgotPassword() {
 
             {error && (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-                {error.message}
+                {error}
               </div>
             )}
 
-            <Button variant="glass"
+            <GlassButton variant="primary"
               type="submit"
               disabled={loading}
               className="w-full"
             >
               {loading ? 'Sending...' : 'Send Reset Instructions'}
-            </Button>
+            </GlassButton>
           </form>
         )}
       </GlassCard>

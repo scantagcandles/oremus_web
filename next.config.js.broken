@@ -1,0 +1,204 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "localhost",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+      },
+      {
+        protocol: "http",
+        hostname: "192.168.*.*",
+      },
+      {
+        protocol: "http",
+        hostname: "10.*.*.*",
+      },
+      {
+        protocol: "http",
+        hostname: "172.16.*.*",
+      },
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+
+  // Moved from experimental in Next.js 15
+  serverExternalPackages: ["nodemailer"],
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
+  experimental: {
+    ...nextConfig.experimental,
+    isrMemoryCacheSize: 0,
+    workerThreads: false,
+    esmExternals: false
+  },
+
+  experimental: {
+    serverActions: {
+      allowedOrigins: [
+        "localhost:3000",
+        "127.0.0.1:3000",
+        "0.0.0.0:3000",
+        "*.vercel.app",
+      ],
+    },
+  },
+
+  env: {
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/service-worker.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+          {
+            key: "Service-Worker-Allowed",
+            value: "/",
+          },
+        ],
+      },
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value:
+              process.env.NODE_ENV === "development"
+                ? "*"
+                : "https://app.oremus.pl",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value:
+              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization",
+          },
+        ],
+      },
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+        ],
+      },
+    ];
+  },
+
+  webpack: (config, { isServer, dev }) => {
+    // Rozszerzona lista fallbacks dla modułów Node.js w przeglądarce
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        // Istniejące fallbacks
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        stream: false,
+        url: false,
+        zlib: false,
+        http: false,
+        https: false,
+        assert: false,
+        os: false,
+        path: false,
+        // Dodatkowe fallbacks dla nodemailer
+        dns: false,
+        child_process: false,
+        worker_threads: false,
+        module: false,
+        punycode: false,
+        querystring: false,
+        util: false,
+        buffer: false,
+        events: false,
+        timers: false,
+      };
+
+      // Dodanie aliasów webpack
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@": require("path").resolve(__dirname, "./"),
+      };
+    }
+
+    // Optymalizacje dla produkcji
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: "all",
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          // vendor chunk
+          vendor: {
+            name: "vendor",
+            chunks: "all",
+            test: /node_modules/,
+            priority: 10,
+          },
+          // common chunk
+          common: {
+            name: "common",
+            minChunks: 2,
+            chunks: "all",
+            priority: 5,
+            reuseExistingChunk: true,
+            enforce: true,
+          },
+        },
+      };
+    }
+
+    // Ignorowanie ostrzeżeń o critical dependencies
+    config.module = {
+      ...config.module,
+      unknownContextCritical: false,
+      exprContextCritical: false,
+    };
+
+    // Dodanie zewnętrznych pakietów dla server-side
+    if (isServer) {
+      config.externals = [...(config.externals || []), "nodemailer"];
+    }
+
+    return config;
+  },
+};
+
+module.exports = nextConfig;
+

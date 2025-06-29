@@ -19,9 +19,8 @@ export async function POST(req: Request) {
     const paymentService = new PaymentService();
     const payment = await paymentService.createPayment({
       amount,
-      type: 'mass_intention',
+      intentionId: metadata.intentionId,
       method: method || 'card',
-      orderId: metadata.intentionId,
       description: `Mass Intention - ${metadata.massType}`
     });
 
